@@ -285,6 +285,21 @@ h1,h2,h3{
 	#linkedIn, #twitter, #github, #youTube, #instagram {
 	  right: 10px;
 	}
+	#linkedIn {
+	  top:20px;
+	}
+	#github {
+	  top:80px;
+	}
+	#twitter {
+	  top:140px;
+	}
+	#youTube {
+	  top:200px;
+	}
+	#instagram {
+	  top:260px;
+	}
 }
 
 @media screen and (min-width: 768px){
