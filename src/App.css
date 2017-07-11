@@ -280,6 +280,13 @@ h1,h2,h3{
   background-position: 0 -33.33% ;
 }
 /*end 3d cube*/
+
+@media screen and (min-width: 420px){
+	#linkedIn, #twitter, #github, #youTube, #instagram {
+	  right: 20px;
+	}
+}
+
 @media screen and (min-width: 768px){
 	.App-header h2{
 		font-size: 2.5em;
@@ -294,27 +301,27 @@ h1,h2,h3{
 	}
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5){
+/*@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5){
   #instagram .one,#github .one, #youTube .one, #linkedIn .one, #twitter .one{
   -webkit-transform: rotateX(90deg) translateZ(40px);
   }
-  
+
   #instagram .two,#github .two, #youTube .two, #linkedIn .two, #twitter .two{
     -webkit-transform: translateZ(40px);
   }
-  
+
   #instagram .three,#github .three, #youTube .three, #linkedIn .three, #twitter .three{
     -webkit-transform: rotateY(90deg) translateZ(40px);
   }
-  
+
   #instagram .four,#github .four, #youTube .four, #linkedIn .four, #twitter .four{
     -webkit-transform: rotateY(180deg) translateZ(40px);
   }
-  
+
   #instagram .five,#github .five, #youTube .five, #linkedIn .five, #twitter .five{
     -webkit-transform: rotateY(-90deg) translateZ(40px);
   }
-  
+
   #instagram .six,#github .six, #youTube .six, #linkedIn .six, #twitter .six{
     -webkit-transform: rotateX(-90deg) translateZ(40px) rotate(180deg);
   }
@@ -346,8 +353,9 @@ h1,h2,h3{
     -webkit-perspective-origin: 50% 220px;
     z-index: 100;
     position:fixed;
-    top:40px;
-    right: 40px;
+    top:80px;
+    right: 80px;
   }
 }
 
+*/
