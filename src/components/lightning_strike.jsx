@@ -4,59 +4,34 @@ class LightningStrike extends Component{
 	constructor(){
 		super();
 		this.state = {
-			lightningWidth: null,
-			lightningHeight: null,
 			lightningTop: null,
 			lightningBackPos: null
 		}
 		this.handleLightningStrike = this.handleLightningStrike.bind(this);
-		this.handleResizeLightning = this.handleResizeLightning.bind(this);
 		this.updateLightningBackgroundPosition = this.updateLightningBackgroundPosition.bind(this);
 	}
 	
 	componentDidMount(){
 		let that = this;
 		this.interval = setInterval(that.handleLightningStrike, 3000);
-		this.handleResizeLightning();
-		window.addEventListener('resize', this.handleResizeLightning);
-	}
-	
-	componentWillUnmount(){
-		window.removeEventListener('resize', this.handleResizeLightning);
 	}
 	
 	handleLightningStrike(){
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 14.28%")}, 75);
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 28.57%")}, 150);
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 42.85%")}, 225);
-			
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 28.57%")}, 300);
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 42.85%")}, 375);
-			
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 28.57%")}, 450);
-		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 42.85%")}, 525);
-	}
-	
-	handleResizeLightning(){
-		const windowWidth = window.innerWidth;
-		//image is made up of 8 frames => height is 1/8 width
-		const height = windowWidth/8;
-		//ratio of width to height of background image = 1600/2160
+		/*14.28, 28.57, 42.85, 57.14, 71.43, 85.71 */
+		this.updateLightningBackgroundPosition(" 0 0%")
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 14.28%")}, 50);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 28.57%")}, 100);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 42.85%")}, 150);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 57.14%")}, 200);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 71.43%")}, 250);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 85.71%")}, 300);
 		
-		let top;
-		switch(true){
-		case windowWidth < 768:
-			top = 750;
-			break;
-		case (windowWidth > 768 && windowWidth < 929):
-			top = 780;
-			break;
-		case windowWidth >= 929:
-			top = windowWidth*0.83;
-			break;
-		}
-		
-		this.setState({lightningWidth: windowWidth, lightningHeight: height, lightningTop: top});
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 71.43%")}, 350);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 28.57%")}, 400);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 71.43%")}, 450);
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 85.71%")}, 500);
+			
+		setTimeout(() => {this.updateLightningBackgroundPosition(" 0 100%")}, 550);
 	}
 	
 	updateLightningBackgroundPosition(backPos){
@@ -64,11 +39,30 @@ class LightningStrike extends Component{
 	}
 	
 	render(){
+		const {windowWidth, backgroundHeight} = this.props;
+		const lightningWidth = (windowWidth < 800) ? windowWidth : 800;
+		const lightningHeight = lightningWidth/8;
+		
+		let lightningTop;
+		switch(true){
+		case windowWidth < 460:
+			lightningTop = backgroundHeight*48/72
+			break;
+		case windowWidth >= 460 && windowWidth <= 740:
+			lightningTop = backgroundHeight*47/72;
+			break;
+		case windowWidth > 740:
+			lightningTop = backgroundHeight*46/72;
+			break;
+		default: 
+			lightningTop = backgroundHeight*46/72;
+		}
+		
 		return(
 			<div className="lightning" 
-					 style={{	height: `${this.state.lightningHeight}px`, 
-						 				width: `${this.state.lightningWidth}px`, 
-						 				top: `${this.state.lightningTop}px`, 
+					 style={{	height: `${lightningHeight}px`, 
+						 				width: `${lightningWidth}px`, 
+						 				top: `${lightningTop}px`, 
 						 				backgroundPosition: `${this.state.lightningBackPos}`
 					 				}}>
 			</div>

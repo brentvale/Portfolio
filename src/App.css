@@ -54,13 +54,13 @@ h1,h2,h3{
 .lightning{
   height: 200;
   width:1600;
-  background: url("./images/lightning_sprite_3images_1strike.png");
+  background: url("./images/lightning_sprite_7images_1strike_purple_glow_single_strand.png");
   background-size: 100% 800%;
   /*14.28, 28.57, 42.85, 57.14, 71.43, 85.71 */
-  background-position: 0 85.71% ;
+  background-position: 0 100% ;
   z-index: 10;
   position: absolute;
-	left: 0;
+	right: 0;
   top:750px;
 }
 .center-block{
