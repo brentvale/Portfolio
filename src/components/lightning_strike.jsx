@@ -69,7 +69,7 @@ class LightningStrike extends Component{
 					 style={{	height: `${this.state.lightningHeight}px`, 
 						 				width: `${this.state.lightningWidth}px`, 
 						 				top: `${this.state.lightningTop}px`, 
-						 				backgroundPosition: this.state.lightningBackPos
+						 				backgroundPosition: `${this.state.lightningBackPos}`
 					 				}}>
 			</div>
 		)

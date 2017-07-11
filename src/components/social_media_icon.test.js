@@ -5,7 +5,7 @@ import SocialMediaIcon from './social_media_icon';
 
 describe('SocialMediaIcon', () => {
 	it('renders without crashing', () => {
-	  shallow(<SocialMediaIcon />)
+	  shallow(<SocialMediaIcon />);
 	});
 
 	it('should start with hovering as false', () => {

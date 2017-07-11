@@ -89,7 +89,7 @@ h1,h2,h3{
 }
 #linkedIn, #twitter, #github, #youTube, #instagram {
   position: fixed;
-  right:0px;
+  right:10px;
   margin: 0 auto;
   height: 40px;
   width: 40px;
@@ -113,21 +113,20 @@ h1,h2,h3{
 #instagram.unspin, #linkedIn.unspin, #twitter.unspin, #github.unspin, #youTube.unspin {
 	animation: unspin 0.2s linear;
 }
-
 #linkedIn {
-  top:10px;
+  top:20px;
 }
 #github {
-  top:70px;
+  top:80px;
 }
 #twitter {
-  top:130px;
+  top:140px;
 }
 #youTube {
-  top:190px;
+  top:200px;
 }
 #instagram {
-  top:250px;
+  top:260px;
 }
 /* bottom facing item*/
 #linkedIn .one  {
@@ -280,27 +279,6 @@ h1,h2,h3{
   background-position: 0 -33.33% ;
 }
 /*end 3d cube*/
-
-@media screen and (min-width: 420px){
-	#linkedIn, #twitter, #github, #youTube, #instagram {
-	  right: 10px;
-	}
-	#linkedIn {
-	  top:20px;
-	}
-	#github {
-	  top:80px;
-	}
-	#twitter {
-	  top:140px;
-	}
-	#youTube {
-	  top:200px;
-	}
-	#instagram {
-	  top:260px;
-	}
-}
 
 @media screen and (min-width: 768px){
 	.App-header h2{
