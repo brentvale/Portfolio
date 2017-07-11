@@ -1,24 +1,77 @@
-.App {
-  text-align: center;
+html{
+	font-size: 16px;
+}
+body{
+	font-size:62.5%;
 }
 
-.App-header {
+h1,h2,h3{
+	color: #000;
+}
+
+/*FONTS*/
+.raleway {
+	font-family: 'Raleway', Arial;
+}
+.rye {
+	font-family: 'Rye', cursive;
+}
+
+/*MAIN*/
+.App {
   background-image: url('./images/background_pool_brent_sky_bella_color.jpg');
 	background-size: cover;
+	background-position:top center;
+	background-repeat:no-repeat;
   padding: 20px;
-  color: white;
+	position:relative;
+  color: #fff;
+  text-align: center;
+}
+.App:before {
+	content: '';
+	height: 100px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom, transparent, white); 
+}
+.App-header h2{
+	display:inline-block;
+	font-size: 1.5em;
+	vertical-align:top;
+}
+.App-header-icon{
+	display:inline-block;
+	padding:4em 2em 2em 2em;
+	width: 300px;
+}
+.App-header-icon img{
+	height:75px;
+	width: 90px;
+}
+.lightning{
+  height: 200;
+  width:1600;
+  background: url("./images/lightning_sprite_3images_1strike.png");
+  background-size: 100% 800%;
+  /*14.28, 28.57, 42.85, 57.14, 71.43, 85.71 */
+  background-position: 0 85.71% ;
+  z-index: 10;
+  position: absolute;
+	left: 0;
+  top:750px;
+}
+.center-block{
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-#experiment {
+/*SOCIAL MEDIA ICONS*/
+#socialIconsContainer{
   -webkit-perspective: 500px;
   -webkit-perspective-origin: 50% 150px;
   z-index: 100;
@@ -227,3 +280,16 @@
   background-position: 0 -33.33% ;
 }
 /*end 3d cube*/
+@media screen and (min-width: 768px){
+	.App-header h2{
+		font-size: 2.5em;
+	}
+	.App-header-icon{
+		padding:8em 2em 2em 30em;
+		width: 350px;
+	}
+	.App-header-icon img{
+		height:100px;
+		width: 120px;
+	}
+}
