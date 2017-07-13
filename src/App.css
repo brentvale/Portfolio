@@ -51,6 +51,56 @@ h1,h2,h3{
 	height:75px;
 	width: 90px;
 }
+.drone-container{
+  background-image: url('./images/drone_sprite_4x4_800px.png');
+	background-size: 400% 400%;
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+	position:absolute;
+	bottom: 200px;
+	height: 100px;
+	width: 100px;
+	animation-name: drone-spin-x, drone-spin-y, drone-motion-y, drone-motion-x;
+	animation-duration: 0.2s, 0.4s, 4s, 4s;
+	animation-iteration-count: infinite, infinite, infinite, infinite;
+	animation-timing-function: steps(4), steps(2), steps(10), steps(5);
+}
+@keyframes drone-spin-x {
+	from{
+		background-position-x:0px;
+	}
+	to{
+		background-position-x:-400px;
+	}
+}
+@keyframes drone-spin-y {
+	from{
+		background-position-y:0px;
+	}
+	to{
+		background-position-y:-200px;
+	}
+}
+@keyframes drone-motion-y {
+	0% {bottom: 201px;}
+	10% {bottom: 202px;}
+	20% {bottom: 201px;}
+	30% {bottom: 200px;}
+	40% {bottom: 199px;}
+	50% {bottom: 198px;}
+	60% {bottom: 199px;}
+	70% {bottom: 200px;}
+	80% {bottom: 199px;}
+	90% {bottom: 200px;}
+	100% {bottom: 201px;}
+}
+@keyframes drone-motion-x {
+	0% {margin-left: 34%;}
+	25% {margin-left: 34.5%;}
+	50% {margin-left: 35%;}
+	75% {margin-left: 34.5%;}
+	100% {margin-left: 34%;}
+}
 .lightning{
   height: 200;
   width:1600;
@@ -280,7 +330,7 @@ h1,h2,h3{
 }
 /*end 3d cube*/
 
-@media screen and (min-width: 768px){
+@media only screen and (min-width: 768px){
 	.App-header h2{
 		font-size: 2.5em;
 	}
@@ -291,5 +341,53 @@ h1,h2,h3{
 	.App-header-icon img{
 		height:100px;
 		width: 120px;
+	}
+	.drone-container{
+		bottom: 250px;
+	}
+	@keyframes drone-motion-x {
+		0% {margin-left: 40%;}
+		25% {margin-left: 40.5%;}
+		50% {margin-left: 41%;}
+		75% {margin-left: 40.5%;}
+		100% {margin-left: 40%;}
+	}
+	@keyframes drone-motion-y {
+		0% {bottom: 301px;}
+		10% {bottom: 302px;}
+		20% {bottom: 301px;}
+		30% {bottom: 300px;}
+		40% {bottom: 299px;}
+		50% {bottom: 298px;}
+		60% {bottom: 299px;}
+		70% {bottom: 300px;}
+		80% {bottom: 299px;}
+		90% {bottom: 300px;}
+		100% {bottom: 301px;}
+	}
+}
+@media only screen and (min-width: 1200px){
+	.drone-container{
+		bottom: 450px;
+	}
+	@keyframes drone-motion-x {
+		0% {margin-left: 46%;}
+		25% {margin-left: 46.5%;}
+		50% {margin-left: 47%;}
+		75% {margin-left: 46.5%;}
+		100% {margin-left: 46%;}
+	}
+	@keyframes drone-motion-y {
+		0% {bottom: 401px;}
+		10% {bottom: 402px;}
+		20% {bottom: 401px;}
+		30% {bottom: 400px;}
+		40% {bottom: 399px;}
+		50% {bottom: 398px;}
+		60% {bottom: 399px;}
+		70% {bottom: 400px;}
+		80% {bottom: 399px;}
+		90% {bottom: 400px;}
+		100% {bottom: 401px;}
 	}
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SocialMediaIcon from './components/social_media_icon';
 import LightningStrike from './components/lightning_strike';
+import DroneContainer from './components/drone_container';
 import bv_icon from './images/horseshoe_brent_taylor_vale_200sq.png';
 import './App.css';
 
@@ -53,6 +54,7 @@ class App extends Component {
         </div>
 						
 				<LightningStrike backgroundHeight={this.state.backgroundHeight} windowWidth={this.state.windowWidth}/>
+				<DroneContainer />
       </div>
     );
   }

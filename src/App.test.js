@@ -24,5 +24,6 @@ describe('App', () => {
 	it('should render linkedIn at the top of the social media icons list', ()=> {
 		const wrapper = shallow(<App/>);
 		expect(wrapper.find(SocialMediaIcon).at(0).props().id).to.equal('linkedIn');
-	})
+	});
+
 });
