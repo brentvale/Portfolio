@@ -1,0 +1,20 @@
+@keyframes drone-motion-x {
+	0% {margin-left: 40%;}
+	25% {margin-left: 40.5%;}
+	50% {margin-left: 41%;}
+	75% {margin-left: 40.5%;}
+	100% {margin-left: 40%;}
+}
+@keyframes drone-motion-y {
+	0% {bottom: 301px;}
+	10% {bottom: 302px;}
+	20% {bottom: 301px;}
+	30% {bottom: 300px;}
+	40% {bottom: 299px;}
+	50% {bottom: 298px;}
+	60% {bottom: 299px;}
+	70% {bottom: 300px;}
+	80% {bottom: 299px;}
+	90% {bottom: 300px;}
+	100% {bottom: 301px;}
+}

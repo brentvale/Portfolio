@@ -1,0 +1,175 @@
+@keyframes drone-motion-x {
+	0% {margin-left: 34%;}
+	25% {margin-left: 34.5%;}
+	50% {margin-left: 35%;}
+	75% {margin-left: 34.5%;}
+	100% {margin-left: 34%;}
+}
+@keyframes avoid-left {
+	0% {
+		margin-left: 34.5%;
+		transform: rotate(-10deg);
+	}
+	5% {
+		margin-left: 31%;
+		transform: rotate(-15deg);
+	}
+	10% {
+		margin-left: 27%;
+		transform: rotate(-15deg);
+	}
+	15% {
+		margin-left: 23%;
+		transform: rotate(-12deg);
+	}
+	20% {
+		margin-left: 19%;
+		transform: rotate(-10deg);
+	}
+	25% {
+		margin-left: 18%;
+		transform: rotate(-5deg);
+	}
+	30% {
+		margin-left: 18%;
+		transform: rotate(0deg);
+	}
+	35% {
+		margin-left: 18%;
+		transform: rotate(0deg);
+	}
+	45% {
+		margin-left: 18%;
+		transform: rotate(0deg);
+	}
+	50% {
+		margin-left: 18%;
+		transform: rotate(0deg);
+	}
+	55% {
+		margin-left: 19.6%;
+		transform: rotate(5deg);
+	}
+	60% {
+		margin-left: 21.3%;
+		transform: rotate(6deg);
+	}
+	65% {
+		margin-left: 22.9%;
+		transform: rotate(6deg);
+	}
+	70% {
+		margin-left: 24.6%;
+		transform: rotate(6deg);
+	}
+	75% {
+		margin-left: 26.2%;
+		transform: rotate(6deg);
+	}
+	80% {
+		margin-left: 27.9%;
+		transform: rotate(6deg);
+	}
+	85% {
+		margin-left: 29.5%;
+		transform: rotate(6deg);
+	}
+	90% {
+		margin-left: 31.2%;
+		transform: rotate(6deg);
+	}
+	95% {
+		margin-left: 32.8%;
+		transform: rotate(6deg);
+	}
+	100% {
+		margin-left: 34.5%;
+		transform: rotate(0deg);
+	}
+}
+@keyframes avoid-right {
+	0% {
+		margin-left: 45.5%;
+		transform: rotate(10deg);
+	}
+	5% {
+		margin-left: 49%;
+		transform: rotate(15deg);
+	}
+	10% {
+		margin-left: 53%;
+		transform: rotate(15deg);
+	}
+	15% {
+		margin-left: 57%;
+		transform: rotate(12deg);
+	}
+	20% {
+		margin-left: 59%;
+		transform: rotate(10deg);
+	}
+	25% {
+		margin-left: 62%;
+		transform: rotate(0deg);
+	}
+	30% {
+		margin-left: 62%;
+		transform: rotate(0deg);
+	}
+	35% {
+		margin-left: 62%;
+		transform: rotate(0deg);
+	}
+	40% {
+		margin-left: 62%;
+		transform: rotate(0deg);
+	}
+	45% {
+		margin-left: 62%;
+		transform: rotate(0deg);
+	}
+	50% {
+		margin-left: 62%;
+		transform: rotate(0deg);
+	}
+	55% {
+		margin-left: 60.3%;
+		transform: rotate(-5deg);
+	}
+	60% {
+		margin-left: 58.6%;
+		transform: rotate(-5deg);
+	}
+	65% {
+		margin-left: 56.9%;
+		transform: rotate(-5deg);
+	}
+	70% {
+		margin-left: 55.2%;
+		transform: rotate(-5deg);
+	}
+	75% {
+		margin-left: 53.5%;
+		transform: rotate(-5deg);
+	}
+	80% {
+		margin-left: 51.8%;
+		transform: rotate(-5deg);
+	}
+	85% {
+		margin-left: 50.1%;
+		transform: rotate(-5deg);
+	}
+	90% {
+		margin-left: 48.4%;
+		transform: rotate(-5deg);
+	}
+	95% {
+		margin-left: 46.7%;
+		transform: rotate(-3deg);
+	}
+	100% {
+		margin-left: 45%;
+		transform: rotate(0deg);
+	}
+}
