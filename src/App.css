@@ -199,87 +199,87 @@ h1,h2,h3{
 }
 @keyframes avoid-right {
 	0% {
-		margin-left: 45.5%;
+		margin-left: 35.5%;
 		transform: rotate(10deg);
 	}
 	5% {
-		margin-left: 49%;
+		margin-left: 39%;
 		transform: rotate(15deg);
 	}
 	10% {
-		margin-left: 53%;
+		margin-left: 43%;
 		transform: rotate(15deg);
 	}
 	15% {
-		margin-left: 57%;
+		margin-left: 47%;
 		transform: rotate(12deg);
 	}
 	20% {
-		margin-left: 59%;
+		margin-left: 49%;
 		transform: rotate(10deg);
 	}
 	25% {
-		margin-left: 62%;
+		margin-left: 52%;
 		transform: rotate(0deg);
 	}
 	30% {
-		margin-left: 62%;
+		margin-left: 52%;
 		transform: rotate(0deg);
 	}
 	35% {
-		margin-left: 62%;
+		margin-left: 52%;
 		transform: rotate(0deg);
 	}
 	40% {
-		margin-left: 62%;
+		margin-left: 52%;
 		transform: rotate(0deg);
 	}
 	45% {
-		margin-left: 62%;
+		margin-left: 52%;
 		transform: rotate(0deg);
 	}
 	50% {
-		margin-left: 62%;
+		margin-left: 52%;
 		transform: rotate(0deg);
 	}
 	55% {
-		margin-left: 60.3%;
+		margin-left: 50.3%;
 		transform: rotate(-5deg);
 	}
 	60% {
-		margin-left: 58.6%;
+		margin-left: 48.6%;
 		transform: rotate(-5deg);
 	}
 	65% {
-		margin-left: 56.9%;
+		margin-left: 46.9%;
 		transform: rotate(-5deg);
 	}
 	70% {
-		margin-left: 55.2%;
+		margin-left: 45.2%;
 		transform: rotate(-5deg);
 	}
 	75% {
-		margin-left: 53.5%;
+		margin-left: 43.5%;
 		transform: rotate(-5deg);
 	}
 	80% {
-		margin-left: 51.8%;
+		margin-left: 41.8%;
 		transform: rotate(-5deg);
 	}
 	85% {
-		margin-left: 50.1%;
+		margin-left: 40.1%;
 		transform: rotate(-5deg);
 	}
 	90% {
-		margin-left: 48.4%;
+		margin-left: 38.4%;
 		transform: rotate(-5deg);
 	}
 	95% {
-		margin-left: 46.7%;
+		margin-left: 36.7%;
 		transform: rotate(-3deg);
 	}
 	100% {
-		margin-left: 45%;
+		margin-left: 35%;
 		transform: rotate(0deg);
 	}
 }
