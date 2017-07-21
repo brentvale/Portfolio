@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 
+let ANIMATION_INTERVAL = 2000; 
+//time for drone to move away and return to center
+//if animation interval is changed, likely will need to update classes that define the animations
+//.drone-container, .drone-container-hovering, .avoid-left, .avoid-right
+
 class DroneContainer extends Component{
 	constructor(){
 		super();
 		this.state = {
-			mouseHovered: false,
-			//need to make sure duration in miliseconds matches up with animation timing for two classes:
-			//.drone-container-hovering.avoid-left && .drone-container-hovering.avoid-right
-			animationInterval: 2000
+			mouseHovered: false
 		}
 		this.handleDroneAvoid = this.handleDroneAvoid.bind(this);
 	}
@@ -15,9 +17,10 @@ class DroneContainer extends Component{
 	handleDroneAvoid(e){
 		setTimeout(() => {
 			this.setState({mouseHovered: false});
-		}, this.state.animationInterval)
+		}, ANIMATION_INTERVAL)
 		this.setState({mouseHovered: true});
 	}
+	
 	render(){
 		let klass = "drone-container drone-container-hovering";
 		if(this.state.mouseHovered){
