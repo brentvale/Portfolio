@@ -18,7 +18,7 @@ h1,h2,h3{
 }
 
 /*MAIN*/
-.App {
+.App-header-container {
   background-image: url('./images/background_pool_brent_sky_bella_color.jpg');
 	background-size: cover;
 	background-position:top center;
@@ -28,7 +28,7 @@ h1,h2,h3{
   color: #fff;
   text-align: center;
 }
-.App:before {
+.App-header-container:before {
 	content: '';
 	height: 200px;
 	position: absolute;
@@ -283,7 +283,6 @@ h1,h2,h3{
 		transform: rotate(0deg);
 	}
 }
-
 
 .lightning{
   height: 200;

@@ -15,7 +15,7 @@ export default class IntroSectionContainer extends Component{
 		const {backgroundHeight, windowWidth} = this.props;
 		
 		return(
-			<div>
+			<div className="App-header-container" style={{height:backgroundHeight}}>
 			  <div className="App-header">
 
 					<div className="App-header-icon">

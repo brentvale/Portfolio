@@ -33,7 +33,7 @@ class App extends Component {
 	
   render() {
     return (
-      <div className="App" style={{height:this.state.backgroundHeight}}>
+      <div className="App">
 			
 				<IntroSectionContainer backgroundHeight={this.state.backgroundHeight} windowWidth={this.state.windowWidth}/>
 			
