@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme';
 import {expect} from 'chai';
 
 import ProgrammingStackContainer from './programming_stack_container';
-import ProgrammingStackModule from './programming_stack_module';
+import ProgrammingStackComponent from './programming_stack_component';
 
 it('renders without crashing', () => {
 	shallow(<ProgrammingStackContainer />)
@@ -12,19 +12,30 @@ it('renders without crashing', () => {
 describe('ProgrammingStackContainer', () => {
 	it('renders React Jest Mocha Chai Enzyme Express Rails Ruby Rspec Photoshop Java Python', () => {
 		const wrapper = shallow(<ProgrammingStackContainer />);
+		//ORDERING MATTERS -> test was failing with with improper order
 		expect(wrapper.containsAllMatchingElements([
-			<ProgrammingStackModule id="React"/>,
-			<ProgrammingStackModule id="Jest"/>,
-			<ProgrammingStackModule id="Mocha"/>,
-			<ProgrammingStackModule id="Chai"/>,
-			<ProgrammingStackModule id="Enzyme"/>,
-			<ProgrammingStackModule id="Express"/>,
-			<ProgrammingStackModule id="Rails"/>,
-			<ProgrammingStackModule id="Ruby"/>,
-			<ProgrammingStackModule id="Rspec"/>,
-			<ProgrammingStackModule id="Java"/>,
-			<ProgrammingStackModule id="Python"/>,
-			<ProgrammingStackModule id="Photoshop"/>
+			<ProgrammingStackComponent id="React"/>,
+			<ProgrammingStackComponent id="Jest"/>,
+			<ProgrammingStackComponent id="Mocha"/>,
+			<ProgrammingStackComponent id="Chai"/>,
+			<ProgrammingStackComponent id="Enzyme"/>,
+			<ProgrammingStackComponent id="Express"/>,
+			<ProgrammingStackComponent id="Rails"/>,
+			<ProgrammingStackComponent id="Ruby"/>,
+			<ProgrammingStackComponent id="Rspec"/>,
+			<ProgrammingStackComponent id="Photoshop"/>,
+			<ProgrammingStackComponent id="Java"/>,
+			<ProgrammingStackComponent id="Python"/>
 		])).to.equal(true);
+	});
+});
+
+describe('ProgrammingStackContainer.selectedHashFromProps', () => {
+	it('should create a hash from the array of selectedTechnologies props', () => {
+		const wrapper = shallow(<ProgrammingStackContainer />);
+		wrapper.setProps({selectedTechnologies: ['React', 'Jest']});
+		const generatedHash = wrapper.instance().createSelectedHashFromProps();
+		
+		expect(generatedHash).to.be.eql({'React':true, 'Jest':true});
 	});
 })

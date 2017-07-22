@@ -51,6 +51,28 @@ h1,h2,h3{
 	height:75px;
 	width: 90px;
 }
+.hand-on-hover:hover{
+	cursor:hand;
+	cursor:pointer;
+}
+
+/*WORK SECTION*/
+.technology-component{
+	display:inline-block;
+	text-align:center;
+	width: 33%;
+}
+.technology-component div{
+	border:1px solid black;
+	box-sizing:border-box;
+	height:100px;
+	margin: 10px;
+}
+.technology-component.selected div{
+	border:1px solid blue;
+}
+
+/*DRONES*/
 .drone-container{
   background-image: url('./images/drone_sprite_4x4_800px.png');
 	background-size: 400% 400%;
@@ -513,6 +535,11 @@ h1,h2,h3{
 }
 /*end 3d cube*/
 
+@media only screen and (min-width: 600px){
+	.technology-component{
+		width: 25%;
+	}
+}
 @media only screen and (min-width: 768px){
 	.App-header h2{
 		font-size: 2.5em;
@@ -529,7 +556,9 @@ h1,h2,h3{
 	.drone-container{
 		bottom: 300px;
 	}
-
+	.technology-component{
+		width: 12.5%;
+	}
 	@keyframes drone-motion-x {
 		0% {margin-left: 40%;}
 		25% {margin-left: 40.5%;}
