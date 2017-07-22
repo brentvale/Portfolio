@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import SocialMediaIcon from './social_media_icon';
 import LightningStrike from './lightning_strike';
 import DroneContainer from './drone_container';
+import PropTypes from 'prop-types'
 
 import bv_icon from '../../images/horseshoe_brent_taylor_vale_200sq.png';
 
@@ -40,4 +41,9 @@ export default class IntroSectionContainer extends Component{
 			</div>
 		)
 	}
+};
+
+IntroSectionContainer.propTypes = {
+	backgroundHeight: PropTypes.number,
+	windowWidth: PropTypes.number
 };
