@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ProgrammingStackContainer from './programming_stack_container';
+import WorkExperience from './work_experience';
 
 export default class WorkSectionContainer extends Component{
 	constructor(){
@@ -25,13 +26,18 @@ export default class WorkSectionContainer extends Component{
 		});
 		this.setState({selectedTechnologies: newState});	
 	}
+
+	renderProgrammingStack = () => (
+		<ProgrammingStackContainer addSelectedTechnology={this.addSelectedTechnology}
+			removeSelectedTechnology={this.removeSelectedTechnology}
+			selectedTechnologies={this.state.selectedTechnologies}/>
+	);
 	
 	render(){
 		return(
 			<div>
-			 <ProgrammingStackContainer addSelectedTechnology={this.addSelectedTechnology}
-			 														removeSelectedTechnology={this.removeSelectedTechnology}
-																	selectedTechnologies={this.state.selectedTechnologies}/>
-			</div>);
+				<WorkExperience />
+			</div>
+		);
 	}
 };
