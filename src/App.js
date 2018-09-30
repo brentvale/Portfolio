@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import WorkSectionContainer from './components/work/section_container';
+import WorkExperience from './components/work/work_experience';
 import IntroSectionContainer from './components/intro/section_container';
 
 import './App.css';
@@ -37,7 +37,7 @@ class App extends Component {
 			
 				<IntroSectionContainer backgroundHeight={this.state.backgroundHeight} windowWidth={this.state.windowWidth}/>
 			
-				<WorkSectionContainer />
+				<WorkExperience />
 			
       </div>
     );
