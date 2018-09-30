@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import nodeSrc from './node.png';
 
 class NodeLogo extends Component {
   render(){
     return(
       <div>
-        <img src={'./node.png'} alt={'node.js'}/>
+        <img src={nodeSrc} alt={'node.js'} style={{ height: 40, width: 40 }}/>
       </div>
     )
   }

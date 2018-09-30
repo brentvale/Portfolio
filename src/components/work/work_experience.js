@@ -13,7 +13,7 @@ const WORK = [
     technologies: [
       {
         key: 0,
-        name: 'React-Native/ReactJS',
+        name: 'React-Native',
         logo: <ReactLogo height={20}/>,
       },
       {
@@ -75,12 +75,29 @@ const WorkBlock = ({ info }) => {
   )
 };
 
+const technologyContainer = {
+  height: 80,
+  width: 80,
+  display: 'inline-block',
+  textAlign: 'center',
+};
+
+const logoContainer = {
+  height: 58,
+  width: 58,
+  display: 'inline-block',
+  textAlign: 'center',
+};
+
 const TechnologyBox = ({ tech }) => {
 
   return(
-    <div style={{ height: 40, width: 40, display: 'inline-block'}}>
-      <p>{tech.name}</p>
-      {tech.logo}
+    <div style={technologyContainer}>
+      <p style={{ textAlign: 'center' }}>{tech.name}</p>
+      <div style={logoContainer}>
+        {tech.logo}
+      </div>
     </div>
+
   )
 }
