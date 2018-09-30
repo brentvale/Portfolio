@@ -1,21 +1,44 @@
 import React, {Component} from 'react';
 import { map } from 'lodash';
 
+import ReactLogo from '../../images/reactLogo';
+import NodeLogo from '../../images/nodeLogo';
+import RoRLogo from '../../images/RoR';
 
 const WORK = [
   {
-    company: 'Keyo',
+    company: 'Keyo AI',
     title: 'Software Engineer',
-    description: 'Lorem ipsum dolor sit amet, purus nunc velit tempor commodo. Nec ipsum quis, felis hac malesuada lacus magna aptent, vestibulum tortor pellentesque, consectetuer erat, lacinia quis libero nunc dolor. Donec eu porttitor ante sit wisi, condimentum pulvinar, diam tristique, a aliquet ac ac ac odio viverra. Et vestibulum non sed. Egestas sed eu tincidunt vestibulum luctus, placerat tincidunt tincidunt interdum sed morbi, imperdiet magna sodales scelerisque, auctor interdum odio. Libero elit a arcu elit mattis. Sit nulla.\n' +
-    '\n' +
-    'Ligula aliquam. Vestibulum fusce id. Viverra laoreet. Vel diam feugiat urna in. Nonummy massa neque volutpat neque aliquet. Cum erat, magnis lectus rhoncus convallis sit, felis amet. Congue nam faucibus diam parturient eros sit, tempor aenean elit volutpat dui. Non pariatur blandit, nec ligula vestibulum fames placerat eros, ultrices sapien orci. Est sed leo nam, neque faucibus non tellus. Nunc duis tristique phasellus cras maecenas euismod, nulla nec dictumst lectus nulla dis mi.'
+    description: 'We\'re creating a more rewarding rental experience for the tenant and landlord.  Tenants can pay rent, make service requests and even boost their credit score through our iOS and android apps. Landlords can manage inventory and streamline their daily tasks while migrating from their ancient DOS systems.  Keyo is the new way to rent.  Join today!',
+    technologies: [
+      {
+        key: 0,
+        name: 'React-Native/ReactJS',
+        logo: <ReactLogo height={20}/>,
+      },
+      {
+        key: 1,
+        name: 'Node.js/Express.js',
+        logo: <NodeLogo />,
+      },
+    ]
   },
   {
-    company: 'Inflection',
-    title: 'Fullstack Rails Engineer',
-    description: 'Lorem ipsum dolor sit amet, purus nunc velit tempor commodo. Nec ipsum quis, felis hac malesuada lacus magna aptent, vestibulum tortor pellentesque, consectetuer erat, lacinia quis libero nunc dolor. Donec eu porttitor ante sit wisi, condimentum pulvinar, diam tristique, a aliquet ac ac ac odio viverra. Et vestibulum non sed. Egestas sed eu tincidunt vestibulum luctus, placerat tincidunt tincidunt interdum sed morbi, imperdiet magna sodales scelerisque, auctor interdum odio. Libero elit a arcu elit mattis. Sit nulla.\n' +
-    '\n' +
-    'Ligula aliquam. Vestibulum fusce id. Viverra laoreet. Vel diam feugiat urna in. Nonummy massa neque volutpat neque aliquet. Cum erat, magnis lectus rhoncus convallis sit, felis amet. Congue nam faucibus diam parturient eros sit, tempor aenean elit volutpat dui. Non pariatur blandit, nec ligula vestibulum fames placerat eros, ultrices sapien orci. Est sed leo nam, neque faucibus non tellus. Nunc duis tristique phasellus cras maecenas euismod, nulla nec dictumst lectus nulla dis mi.'
+    company: 'TimeLessLapse',
+    title: '(Hobby Project)',
+    description: 'Compile daily photos to create timelapses of life\'s unforgettable moments.  Applicable for the month of Movember, pregnancy tracking, and the hobby gardener.  The image stabilization algorithm detects sharp gradient changes to create pixel maps which are easily adjusted to stabilize subsequent images. Features multi-lingual options: English, Spanish, Klingon.',
+    technologies: [
+      {
+        key: 2,
+        name: 'ReactJS',
+        logo: <ReactLogo height={20}/>,
+      },
+      {
+        key: 3,
+        name: 'RoR',
+        logo: <RoRLogo />,
+      },
+    ]
   },
 ];
 
@@ -45,6 +68,19 @@ const WorkBlock = ({ info }) => {
     <div className={'workExperienceSection'}>
       <h2 className={'flexCentered mediumPadding'}>{info.company} : {info.title}</h2>
       <p className={'flexCentered mediumPadding'}>{info.description}</p>
+      { map(info.technologies, (tech) => {
+        return <TechnologyBox key={tech.key} tech={tech}/>
+      })}
     </div>
   )
 };
+
+const TechnologyBox = ({ tech }) => {
+
+  return(
+    <div style={{ height: 40, width: 40, display: 'inline-block'}}>
+      <p>{tech.name}</p>
+      {tech.logo}
+    </div>
+  )
+}
