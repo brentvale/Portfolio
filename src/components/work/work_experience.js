@@ -85,6 +85,11 @@ const YOU_TUBE_VIDEOS = [
     url: 'https://www.youtube.com/embed/PLlrmsRwxEI',
     title: 'Brent and Brutus',
     comments: '',
+  },
+  {
+    url: 'https://www.youtube.com/embed/-oWFcyOQed4',
+    title: 'Building a chicken coop',
+    comments: '',
   }
 ];
 
