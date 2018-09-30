@@ -68,7 +68,7 @@ const YOU_TUBE_VIDEOS = [
   },
   {
     url: 'https://www.youtube.com/embed/A8JJpMvIC1k',
-    title: 'Boogey Boarding on our HoneyMoon',
+    title: 'Boogey Boarding : Honeymoon',
     comments: '',
   },
   {
