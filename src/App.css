@@ -57,6 +57,21 @@ h1,h2,h3{
 }
 
 /*WORK SECTION*/
+#horseSprite, #horseSpriteStationary{
+	background-image:url("./images/horse_sprite_small_pasture_one_third.png");
+	background-position: 0 0;
+	height: 36px;
+	width: 50px;
+	animation: horse-ride 0.4s steps(12) infinite;
+}
+@keyframes horse-ride {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 0 432px;
+	}
+}
 .flexCentered{
 	display: flex;
 	flex: 1;
@@ -64,8 +79,22 @@ h1,h2,h3{
 	justify-content: center;
 	align-items: center;
 }
+.flexStart{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
 .mediumPadding{
 	padding: 0 80px 0 40px;
+}
+.sectionFont{
+	font-family: 'Raleway', Arial;
+	font-size: 16px;
+	line-height: 22px;
+	color: #727272;
+	letter-spacing: 1.2px;
 }
 .technology-component{
 	display:inline-block;
@@ -81,10 +110,23 @@ h1,h2,h3{
 .technology-component.selected div{
 	border:1px solid blue;
 }
+.video-responsive{
+	overflow:hidden;
+	padding-bottom:56.25%;
+	position:relative;
+}
+.video-responsive iframe{
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	position:absolute;
+}
 .workExperienceSection{
 	padding: 40px;
 	width: 100%;
 	max-width: 600px;
+	text-align: center;
 }
 
 /*DRONES*/
