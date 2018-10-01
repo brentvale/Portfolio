@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import WorkExperience from './components/work/work_experience';
 import IntroSectionContainer from './components/intro/section_container';
+import Footer from './components/footer';
 
 import './App.css';
 
@@ -34,11 +35,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-			
 				<IntroSectionContainer backgroundHeight={this.state.backgroundHeight} windowWidth={this.state.windowWidth}/>
 			
 				<WorkExperience />
-			
+
+				<Footer />
       </div>
     );
   }

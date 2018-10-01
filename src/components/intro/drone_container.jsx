@@ -10,14 +10,14 @@ class DroneContainer extends Component{
 		super();
 		this.state = {
 			mouseHovered: false
-		}
+		};
 		this.handleDroneAvoid = this.handleDroneAvoid.bind(this);
 	}
 	
 	handleDroneAvoid(e){
 		setTimeout(() => {
 			this.setState({mouseHovered: false});
-		}, ANIMATION_INTERVAL)
+		}, ANIMATION_INTERVAL);
 		this.setState({mouseHovered: true});
 	}
 	
