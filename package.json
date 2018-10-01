@@ -2,7 +2,7 @@
   "name": "brent-vale-react-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.brentvale.com",
+  "homepage": "https://brentvale.github.io/portfolio",
   "dependencies": {
     "babel-register": "^6.26.0",
     "gh-pages": "^1.0.0",
