@@ -10,13 +10,12 @@ it('renders without crashing', () => {
   shallow(<App />);
 });
 
-describe('App', () => { 
-	it('should render intro section', () => {
-		shallow(<IntroSectionContainer />)
-	})
-	
-	it('should render work section', () => {
-		shallow(<WorkSectionContainer />);
-	})
+describe('App', () => {
+  it('should render intro section', () => {
+    shallow(<IntroSectionContainer />);
+  });
 
+  it('should render work section', () => {
+    shallow(<WorkSectionContainer />);
+  });
 });

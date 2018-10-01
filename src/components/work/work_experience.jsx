@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { map } from 'lodash';
 
 import ReactLogo from '../../images/reactLogo';
@@ -10,7 +10,7 @@ const WORK = [
     company: 'Keyo AI',
     title: 'Software Engineer',
     website: {
-      url:'https://keyo.com',
+      url: 'https://keyo.com',
       title: 'Keyo Main Website',
     },
     description: 'We\'re creating a more rewarding rental experience for the tenant and landlord.  Tenants can pay rent, make service requests and even boost their credit score through our iOS and android apps. Landlords can manage inventory and streamline their daily tasks while migrating from their ancient DOS systems.  Keyo is the new way to rent.  Join today!',
@@ -25,7 +25,7 @@ const WORK = [
         name: 'Node.js/Express.js',
         logo: <NodeLogo />,
       },
-    ]
+    ],
   },
   {
     company: 'TimeLessLapse',
@@ -46,11 +46,11 @@ const WORK = [
         name: 'RoR',
         logo: <RoRLogo />,
       },
-    ]
+    ],
   },
 ];
 
-const HORSE_MOVE_DISTANCE = 4; //pixel horse moves per interval
+const HORSE_MOVE_DISTANCE = 4; // pixel horse moves per interval
 const HORSE_SPRITE_INTERVAL_DURATION = 40;
 
 const DEFAULT_VIDEO_HEIGHT = 315;
@@ -59,7 +59,7 @@ const REDUCTION_PERCENT = 0.60; // 60%
 const VIDEO_WIDTH_NARROW_SCREEN = DEFAULT_VIDEO_WIDTH * REDUCTION_PERCENT;
 const VIDEO_HEIGHT_NARROW_SCREEN = DEFAULT_VIDEO_HEIGHT * REDUCTION_PERCENT;
 
-const DELAY_UNTIL_VIDEO_LOAD = 4000; //second until trying to load youtube videos
+const DELAY_UNTIL_VIDEO_LOAD = 4000; // second until trying to load youtube videos
 const YOU_TUBE_VIDEOS = [
   {
     url: 'https://www.youtube.com/embed/j5sYjttLjL4',
@@ -90,10 +90,10 @@ const YOU_TUBE_VIDEOS = [
     url: 'https://www.youtube.com/embed/-oWFcyOQed4',
     title: 'Building a chicken coop',
     comments: '',
-  }
+  },
 ];
 
-export default class WorkExperience extends Component{
+export default class WorkExperience extends Component {
   constructor() {
     super();
     this.state = {
@@ -102,20 +102,20 @@ export default class WorkExperience extends Component{
       windowWidth: 0,
       videoSectionHeight: DEFAULT_VIDEO_HEIGHT,
       videoSectionWidth: DEFAULT_VIDEO_WIDTH,
-    }
+    };
   }
 
-  componentDidMount(){
-    window.addEventListener("resize", this.updateDimensions);
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
     this.updateDimensions();
     this.loadVideosTimeout = setTimeout(() => {
       this.setState({ okToLoadYouTubeVideos: true });
     }, DELAY_UNTIL_VIDEO_LOAD);
   }
 
-  componentWillUnmount(){
-    window.removeEventListener("resize", this.updateDimensions);
-    if(this.loadVideosTimeout){
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+    if (this.loadVideosTimeout) {
       clearTimeout(this.loadVideosTimeout);
     }
   }
@@ -124,58 +124,51 @@ export default class WorkExperience extends Component{
     this.horseInterval = setInterval(() => {
       this.setState({
         left: (this.state.left < this.state.windowWidth) ? this.state.left + HORSE_MOVE_DISTANCE : 0,
-      })
+      });
     }, HORSE_SPRITE_INTERVAL_DURATION);
   };
 
   updateDimensions = () => {
-    if(this.horseInterval){
+    if (this.horseInterval) {
       clearInterval(this.horseInterval);
     }
     this.setState({
       windowWidth: window.innerWidth,
-      videoSectionHeight:  window.innerWidth < DEFAULT_VIDEO_WIDTH + 20 ?
-        VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT,
-      videoSectionWidth:  window.innerWidth < DEFAULT_VIDEO_WIDTH + 20 ?
-        VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH,
+      videoSectionHeight: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
+        ? VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT,
+      videoSectionWidth: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
+        ? VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH,
     }, () => {
       this.startHorseTimer();
     });
   };
 
-  render(){
-
-    return(
+  render() {
+    return (
       <div className={'flexCentered'}>
         <HorseRiding left={this.state.left}/>
-        {map(WORK, (info, idx)=> {
-          return <WorkBlock info={info} key={idx}/>
-        })}
+        {map(WORK, (info, idx) => <WorkBlock info={info} key={idx}/>)}
         <WorkBlockLookingForMore />
         <SectionDivider />
 
         {this.state.okToLoadYouTubeVideos
-          ?
-            <div>
-              {map(YOU_TUBE_VIDEOS, (videoObj, idx) => {
-                return <VideoSection
+          ? <div>
+              {map(YOU_TUBE_VIDEOS, (videoObj, idx) => <VideoSection
                         key={idx}
                         videoObj={videoObj}
                         height={this.state.videoSectionHeight}
-                        width={this.state.videoSectionWidth}/>
-              })}
+                        width={this.state.videoSectionWidth}/>)}
             </div>
-          :
-            <div>
+          : <div>
               <h1>LOADING VIDEOS FROM YOUTUBE</h1>
             </div>}
       </div>
-    )
+    );
   }
 }
 
 const HorseRiding = ({ left }) => (
-  <div style={{position: 'relative', width: '100%'}}>
+  <div style={{ position: 'relative', width: '100%' }}>
     <div
       id={'horseSprite'}
       style={{ position: 'absolute', left, top: -50 }}
@@ -185,7 +178,7 @@ const HorseRiding = ({ left }) => (
 
 const SectionDivider = () => (
   <div style={sectionEndStyle}>
-    <div style={{height: 1, backgroundColor: '#e2e2e2'}}/>
+    <div style={{ height: 1, backgroundColor: '#e2e2e2' }}/>
   </div>
 );
 
@@ -198,22 +191,21 @@ const SectionTitle = ({ title }) => (
   </h2>
 );
 
-const TechnologyBox = ({ tech }) => {
-  return(
+const TechnologyBox = ({ tech }) => (
     <div style={technologyContainer}>
       <p style={labelText}>{tech.name}</p>
       <div style={logoContainer}>
         {tech.logo}
       </div>
     </div>
-  )
-};
+);
 
 const VideoSection = ({ height, width, videoObj }) => (
   <div>
     <h3 style={sectionTitleText}>{videoObj.title}</h3>
     <p>{videoObj.comments}</p>
     <iframe
+      title={videoObj.title}
       width={width}
       height={height}
       src={videoObj.url}
@@ -222,7 +214,7 @@ const VideoSection = ({ height, width, videoObj }) => (
   </div>
 );
 
-const WebsiteDisplay = ({ website}) => (
+const WebsiteDisplay = ({ website }) => (
   <div style={websiteContainer}>
     <a href={website.url} title={website.title} style={websiteText}>{website.url}</a>
   </div>
@@ -230,28 +222,26 @@ const WebsiteDisplay = ({ website}) => (
 
 const WorkBlock = ({ info }) => {
   const titleDisplay = info.title ? `${info.company} : ${info.title}` : `${info.company}`;
-  return(
+  return (
     <div className={'workExperienceSection'}>
       <SectionTitle title={titleDisplay}/>
 
-      <p className={'mediumPadding sectionFont'} style={{textAlign: 'left'}}>{info.description}</p>
+      <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>{info.description}</p>
 
       <WebsiteDisplay website={info.website} />
 
       <div className={'mediumPadding'}>
-        { map(info.technologies, (tech) => {
-          return <TechnologyBox key={tech.key} tech={tech}/>
-        })}
+        { map(info.technologies, tech => <TechnologyBox key={tech.key} tech={tech}/>)}
       </div>
     </div>
-  )
+  );
 };
 
 const WorkBlockLookingForMore = () => (
   <div className={'workExperienceSection'}>
     <SectionTitle title={'Looking for more ??'}/>
 
-    <p className={'mediumPadding sectionFont'} style={{textAlign: 'left'}}>
+    <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
       {'Head on over to my '}
       <a href={'https://www.linkedin.com/in/brentvale/'}>linkedin profile</a>
       {' for more work history.  If any of my experiences could be useful to you, don\'t hesitate to reach out!'}
@@ -296,10 +286,6 @@ const technologyContainer = {
   width: 80,
   display: 'inline-block',
   textAlign: 'center',
-};
-
-const videoTitle = {
-
 };
 
 const websiteContainer = {

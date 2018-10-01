@@ -1,45 +1,48 @@
-import React, {Component} from 'react';
-import ProgrammingStackComponent from './programming_stack_component';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ProgrammingStackComponent from './programming_stack_component';
+import { forEach } from 'lodash';
 
-let TECHNOLOGIES = ["React", "Jest", "Mocha", "Chai", "Enzyme", "Express", "Rails", "Ruby", "Rspec", "Photoshop", "Java", "Python"];
+const TECHNOLOGIES = ['React', 'Jest', 'Mocha', 'Chai', 'Enzyme', 'Express', 'Rails', 'Ruby', 'Rspec', 'Photoshop', 'Java', 'Python'];
 
-export default class ProgrammingStackContainer extends Component{
-	constructor(props){
-		super(props);
-		this.createSelectedHashFromProps = this.createSelectedHashFromProps.bind(this);
-	}
-	
-	createSelectedHashFromProps(){
-		let hash = {};
-		if(typeof this.props.selectedTechnologies !== "undefined"){
-			this.props.selectedTechnologies.map((technology) => {
-				hash[technology] = true;
-			});
-		}
-		return hash;
-	}
-	
-	render(){
-		const { addSelectedTechnology, removeSelectedTechnology } = this.props;
+export default class ProgrammingStackContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.createSelectedHashFromProps = this.createSelectedHashFromProps.bind(this);
+  }
 
-		const selectedHash = this.createSelectedHashFromProps();
+  createSelectedHashFromProps() {
+    const hash = {};
+    if (typeof this.props.selectedTechnologies !== 'undefined') {
+      forEach(this.props.selectedTechnologies, (technology) => {
+        hash[technology] = true;
+      });
+    }
+    return hash;
+  }
 
-		return(
-			<div>
-				{TECHNOLOGIES.map((technology,idx) => {
-					return <ProgrammingStackComponent  id={technology} 
-																						 key={idx}
-																				  	 addSelectedTechnology={addSelectedTechnology} 
-																						 removeSelectedTechnology={removeSelectedTechnology}
-																						 selected={selectedHash[technology]} />
-				})}
-			</div>);
-	}
-};
+  render() {
+    const { addSelectedTechnology, removeSelectedTechnology } = this.props;
+
+    const selectedHash = this.createSelectedHashFromProps();
+
+    return (
+      <div>
+        {TECHNOLOGIES.map((technology, idx) => (
+          <ProgrammingStackComponent
+            id={technology}
+            key={idx}
+            addSelectedTechnology={addSelectedTechnology}
+            removeSelectedTechnology={removeSelectedTechnology}
+            selected={selectedHash[technology]}
+          />
+        ))}
+      </div>);
+  }
+}
 
 ProgrammingStackContainer.PropTypes = {
-	addSelectedTechnology: PropTypes.func.isRequired,
-	removeSelectedTechnology: PropTypes.func.isRequired,
-	selectedTechnologies: PropTypes.array.isRequired
-}
+  addSelectedTechnology: PropTypes.func.isRequired,
+  removeSelectedTechnology: PropTypes.func.isRequired,
+  selectedTechnologies: PropTypes.array.isRequired,
+};
