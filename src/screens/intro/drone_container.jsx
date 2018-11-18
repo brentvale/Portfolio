@@ -29,21 +29,58 @@ class DroneContainer extends Component {
   componentDidMount(){
     window.addEventListener('keydown', this.handleKeyDowns);
     window.addEventListener('keyup', this.handleKeyUps);
+    this.animateScene();
   }
 
   componentWillUnmount(){
     window.removeEventListener('keydown', this.handleKeyDowns);
     window.removeEventListener('keyup', this.handleKeyUps);
+    clearInterval(this.animationInterval);
   }
+
+  animateScene = () => {
+    this.animationInterval = setInterval(() => {
+      let top = this.state.position.y;
+      let left = this.state.position.x;
+
+      // 65, 87, 68, 83 => A W D S
+      // 74, 73, 76, 75 => J I L K
+      //HORIZONTAL MOVEMENT
+      if(indexOf(this.state.keysDown, 65) !== -1){
+        left -= 10;
+      }
+      if(indexOf(this.state.keysDown, 68) !== -1){
+        left += 10;
+      }
+
+      // VERTICAL MOVEMENT
+      if(indexOf(this.state.keysDown, 83) !== -1){
+        top += 10;
+      }
+      if(indexOf(this.state.keysDown, 87) !== -1){
+        top -= 10;
+      }
+
+      if(this.state.keysDown.length === 0){
+        //add some wobble
+      }
+
+      this.setState({ position: { x: left, y: top }}, () => {
+        this.forceUpdate();
+      });
+    }, 16);
+  };
 
   handleKeyDowns = (e) => {
     const keysDown = this.state.keysDown.slice(0);
-    keysDown.push(e.keyCode);
+    if(indexOf(keysDown, e.keyCode) === -1){
+      keysDown.push(e.keyCode);
+    }
     this.setState({ keysDown });
   };
 
   handleKeyUps = (e) => {
-    this.setState({ keysDown: filter(this.state.keysDown, o => o === e.keyCode) })
+    this.setState({ keysDown: filter(this.state.keysDown, o => o !== e.keyCode) })
   };
 
   shouldComponentUpdate(nextProps){
@@ -53,7 +90,7 @@ class DroneContainer extends Component {
     return false;
   }
 
-  componentDidUpdate(prevProps, prevState){
+  componentDidUpdate(prevProps){
     if(prevProps.windowWidth !== this.props.windowWidth){
       this.setState({ position:
         {
@@ -66,24 +103,9 @@ class DroneContainer extends Component {
     }
   }
 
-  handlePositionFromKeysDown = () => {
-    if(indexOf(this.state.keysDown, 37) !== -1){
-
-    }
-    if(this.state.keysDown.length === 0){
-      //add some wobble
-    }
-    return {
-      top: this.state.position.y - .5 * DRONE_IMAGE_HEIGHT,
-      left: this.state.position.x - .5 * DRONE_IMAGE_HEIGHT,
-    };
-  };
-
   render() {
-    const { top, left } = this.handlePositionFromKeysDown();
     const droneBoundariesHeight = this.props.backgroundHeight / 2160 * BOUNDARIES_HEIGHT;
     const droneBoundariesFromBottom = this.props.backgroundHeight / 2160 * BOUNDARIES_FROM_BOTTOM;
-
     return (
       <div className={'drone-boundaries'}
            style={{
@@ -92,7 +114,10 @@ class DroneContainer extends Component {
            }}>
         <div
           className={'drone-propellers drone-hovering'}
-          style={{ top, left }}
+          style={{
+            top: this.state.position.y - .5*DRONE_IMAGE_HEIGHT,
+            left: this.state.position.x - .5*DRONE_IMAGE_HEIGHT,
+          }}
         />
       </div>
     );
