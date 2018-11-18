@@ -36,8 +36,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-				<IntroSectionOverlay backgroundHeight={this.state.backgroundHeight}
-														 windowWidth={this.state.windowWidth}/>
+				{/*<IntroSectionOverlay backgroundHeight={this.state.backgroundHeight}*/}
+														 {/*windowWidth={this.state.windowWidth}/>*/}
 
 				<IntroSectionContainer backgroundHeight={this.state.backgroundHeight}
 															 windowWidth={this.state.windowWidth}/>
