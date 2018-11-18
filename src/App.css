@@ -19,14 +19,27 @@ h1,h2,h3{
 
 /*MAIN*/
 .App-header-container {
-  background-image: url('./images/background_pool_brent_sky_bella_color.jpg');
+  	background-image: url('./images/background_pool_brent_sky_bella_color.jpg');
 	background-size: cover;
 	background-position:top center;
 	background-repeat:no-repeat;
-  padding: 20px;
+  	padding: 20px;
 	position:relative;
-  color: #fff;
-  text-align: center;
+  	color: #fff;
+  	text-align: center;
+	z-index: 0;
+}
+.App-header-overlay {
+	background-image: url('./images/pond_alpha_layer.png');
+	background-size: cover;
+	background-position:top center;
+	background-repeat:no-repeat;
+	z-index: 2;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
 }
 .App-header-container:before {
 	content: '';
@@ -409,6 +422,7 @@ h1,h2,h3{
   -webkit-transform-style: preserve-3d;
   cursor:pointer;
   cursor:hand;
+	z-index: 200;
 }
 @keyframes spin {
 	from { transform: rotateY(0); }

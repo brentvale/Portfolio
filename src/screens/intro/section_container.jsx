@@ -13,15 +13,15 @@ export default class IntroSectionContainer extends Component {
 
     return (
       <div className="App-header-container" style={{ height: backgroundHeight }}>
-        <div className="App-header">
+        <div className="App-header" style={{ zIndex: 3 }}>
 
-          <div className="App-header-icon">
+          <div className="App-header-icon" style={{ zIndex: 4 }}>
             <h2 className="rye">coding&nbsp;</h2>
             <img src={bv_icon} className="App-header-icon-image" alt="logo" />
             <h2 className="rye">&nbsp;cowboy</h2>
           </div>
 
-          <div id="socialIconsContainer">
+          <div id="socialIconsContainer" style={{ zIndex: 5 }}>
             <SocialMediaIcon id="linkedIn" href="https://www.linkedin.com/in/brentvale" altText="Brent Taylor Vale LinkedIn Profile" />
             <SocialMediaIcon id="twitter" href="https://twitter.com/ValeBrent" altText="Brent Taylor Vale Twitter Profile" />
             <SocialMediaIcon id="github" href="https://github.com/brentvale" altText="Brent Taylor Vale Github Profile" />
