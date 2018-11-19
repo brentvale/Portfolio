@@ -25,8 +25,8 @@ class SocialMediaIconDisplay extends Component {
       <a
         href={href}
         alt={altText}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={'_blank'}
+        rel={'noopener noreferrer'}
       >
         <div
           id={id}

@@ -17,7 +17,8 @@ class Footer extends Component {
       <div style={container}>
         <a
           href={'https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrentvale.github.io%2Fportfolio'}
-          target='_blank'
+          target={'_blank'}
+          rel={'noopener noreferrer'}
         >
           Speed Matters
         </a>

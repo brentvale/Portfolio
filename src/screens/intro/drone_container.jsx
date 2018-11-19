@@ -123,6 +123,7 @@ class DroneContainer extends Component {
           <a
             href={'https://www.skypixel.com/users/brentvale_user'}
             target={'_blank'}
+            rel={'noopener noreferrer'}
           >
             SKYPIXEL
           </a>
