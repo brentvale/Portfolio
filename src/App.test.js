@@ -3,8 +3,8 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import App from './App';
 
-import WorkSectionContainer from './components/work/section_container';
-import IntroSectionContainer from './components/intro/section_container';
+import WorkSectionContainer from './screens/work/section_container';
+import IntroSectionContainer from './screens/intro/section_container';
 
 it('renders without crashing', () => {
   shallow(<App />);
