@@ -115,7 +115,7 @@ class DroneContainer extends Component {
         <div
           className={'drone-propellers drone-hovering'}
           style={{
-            top: this.state.position.y - .5*DRONE_IMAGE_HEIGHT,
+            // top: this.state.position.y - .5*DRONE_IMAGE_HEIGHT,
             left: this.state.position.x - .5*DRONE_IMAGE_HEIGHT,
           }}
         />
