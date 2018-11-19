@@ -181,6 +181,7 @@ h1,h2,h3{
 	height: 100px;
 	width: 100px;
 }
+
 .drone-propellers{
 	animation-name: drone-spin-x, drone-spin-y;
 	animation-duration: 0.2s, 0.4s, 4s, 4s;
