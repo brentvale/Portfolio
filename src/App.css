@@ -184,9 +184,9 @@ h1,h2,h3{
 
 .drone-propellers{
 	animation-name: drone-spin-x, drone-spin-y;
-	animation-duration: 0.2s, 0.4s, 4s, 4s;
-	animation-iteration-count: infinite, infinite, infinite, infinite;
-	animation-timing-function: steps(4), steps(2), steps(10), steps(5);
+	animation-duration: 0.2s, 0.4s;
+	animation-iteration-count: infinite, infinite;
+	animation-timing-function: steps(4), steps(2);
 }
 @keyframes drone-spin-x {
 	from{
