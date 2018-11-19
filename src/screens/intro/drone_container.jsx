@@ -46,19 +46,19 @@ class DroneContainer extends Component {
       // 65, 87, 68, 83 => A W D S
       // 74, 73, 76, 75 => J I L K
       //HORIZONTAL MOVEMENT
-      if(indexOf(this.state.keysDown, 65) !== -1){
-        left -= 10;
+      if(indexOf(this.state.keysDown, 65) !== -1){ // left
+        left = left < DRONE_IMAGE_HEIGHT/2 ? 100 : left - 10;
       }
-      if(indexOf(this.state.keysDown, 68) !== -1){
-        left += 10;
+      if(indexOf(this.state.keysDown, 68) !== -1){ // right
+        left = left > this.props.windowWidth - DRONE_IMAGE_HEIGHT/2 ? this.props.windowWidth - 100 : left + 10;
       }
 
       // VERTICAL MOVEMENT
-      if(indexOf(this.state.keysDown, 83) !== -1){
-        top += 10;
+      if(indexOf(this.state.keysDown, 87) !== -1){ // up
+        top = top < -1000 ? -900 : top - 10;
       }
-      if(indexOf(this.state.keysDown, 87) !== -1){
-        top -= 10;
+      if(indexOf(this.state.keysDown, 83) !== -1){ // down
+        top = top > 1000 ? 900 : top + 10;
       }
 
       if(this.state.keysDown.length === 0){
@@ -119,6 +119,14 @@ class DroneContainer extends Component {
             left: this.state.position.x - .5*DRONE_IMAGE_HEIGHT,
           }}
         />
+        <div id={'skypixelContainer'}>
+          <a
+            href={'https://www.skypixel.com/users/brentvale_user'}
+            target={'_blank'}
+          >
+            SKYPIXEL
+          </a>
+        </div>
       </div>
     );
   }
