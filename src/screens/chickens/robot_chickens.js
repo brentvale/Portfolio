@@ -4,9 +4,6 @@ import map from 'lodash/map';
 
 import Chicken from '../../js/Chicken';
 
-const CHICKEN_IMAGE_WIDTH = 100;
-const HALF_WIDTH = CHICKEN_IMAGE_WIDTH/2;
-
 class RobotChickens extends Component {
   constructor(props) {
     super(props);
@@ -29,13 +26,20 @@ class RobotChickens extends Component {
       if(!this.state.chickens.length){
         this.setState({
           chickens: [
-            new Chicken({ screenWidth: this.props.windowWidth }),
-            new Chicken({ screenWidth: this.props.windowWidth }),
+            new Chicken({ screenWidth: this.props.windowWidth, yPos: 10 }),
+            new Chicken({ screenWidth: this.props.windowWidth, yPos: 8 }),
+            new Chicken({ screenWidth: this.props.windowWidth, yPos: 6 }),
+            new Chicken({ screenWidth: this.props.windowWidth, yPos: 4 }),
+            new Chicken({ screenWidth: this.props.windowWidth, yPos: 1 }),
           ],
         }, () => {
           this.forceUpdate();
           this.animateX();
         });
+      } else {
+        forEach(this.state.chickens, chicken => {
+          chicken.setScreenWidth(this.props.windowWidth);
+        })
       }
     }
   }
@@ -56,11 +60,16 @@ class RobotChickens extends Component {
   render() {
     return (
       <div id={'chickenContainer'}>
-        {map(this.state.chickens, (chicken, idx) => {
-          return <div key={idx.toString()}
-                      style={{ left: chicken.xPos }}
-                      className={'robot-chicken robot-chicken-walking'}/>
-        })}
+        <h2>Feed my robot chickens!</h2>
+        <div style={{ height: '50px' }} />
+        <div className={'inner'}>
+          {map(this.state.chickens, (chicken, idx) => {
+            return <div key={idx.toString()}
+                        style={{ left: chicken.xPos }}
+                        className={chicken.getKlassName()}/>
+          })}
+        </div>
+
       </div>
     );
   }

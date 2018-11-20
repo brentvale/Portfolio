@@ -6,6 +6,8 @@
     position:fixed;
     top:10px;
     right: 15px;
+    height: 350px;
+    width: 80px;
 }
 .face {
     position: fixed;

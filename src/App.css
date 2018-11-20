@@ -161,18 +161,33 @@ h1,h2,h3{
 
 /*CHICKENS*/
 #chickenContainer{
-	height: 600px;
+	height: 500px;
 	width: 100%;
 	position: relative;
 }
+#chickenContainer h2{
+    text-align: center;
+    font-family: Rye, cursive;
+    font-size: 20px;
+}
+#chickenContainer .inner{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.robot-chicken-move-left{
+	background-image: url('./images/chickens_walking_sprite_right_to_left.png');
+}
+.robot-chicken-move-right{
+	background-image: url('./images/chickens_walking_sprite_left_to_right.png');
+}
 .robot-chicken{
-	background-image: url('./images/chicken_sprite.png');
 	background-size: 300px 100px;
 	background-position:0px 0px;
 	background-repeat:no-repeat;
 	position:absolute;
-	height: 100px;
-	width: 100px;
+    height: 100px;
+    width: 100px;
 }
 .robot-chicken-walking{
 	animation-name: chicken-walking;
@@ -180,6 +195,62 @@ h1,h2,h3{
 	animation-iteration-count: infinite;
 	animation-timing-function: steps(3);
 }
+.robot-chicken-stopped-facing-right {
+	background-position-x: -200px;
+}
+
+.chicken-depth-1{
+    top: 20px;
+    transform: scale(0.5, 0.5);
+    z-index: 1;
+}
+.chicken-depth-2{
+    top: 40px;
+    transform: scale(0.55, 0.55);
+    z-index: 2;
+}
+.chicken-depth-3{
+    top: 60px;
+    transform: scale(0.6, 0.6);
+    z-index: 3;
+}
+.chicken-depth-4{
+    top: 80px;
+    transform: scale(0.65, 0.65);
+    z-index: 4;
+}
+.chicken-depth-5{
+    top: 100px;
+    transform: scale(0.7, 0.7);
+    z-index: 5;
+}
+.chicken-depth-6{
+    top: 120px;
+    transform: scale(0.75, 0.75);
+    z-index: 6;
+}
+.chicken-depth-7{
+    top: 140px;
+    transform: scale(0.8, 0.8);
+    z-index: 7;
+}
+.chicken-depth-8{
+    top: 160px;
+    transform: scale(0.85, 0.85);
+    z-index: 8;
+}
+.chicken-depth-9{
+    top: 180px;
+    transform: scale(0.9, 0.9);
+    z-index: 9;
+}
+.chicken-depth-10{
+    top: 200px;
+    transform: scale(1, 1);
+    z-index: 10;
+}
+
+
 @keyframes chicken-walking {
 	from{
 		background-position-x:0px;
@@ -275,6 +346,9 @@ h1,h2,h3{
 		bottom: 100px;
 		padding: 20px;
 	}
+    #chickenContainer h2{
+        font-size: 30px;
+    }
 }
 @media only screen and (min-width: 1200px){
 

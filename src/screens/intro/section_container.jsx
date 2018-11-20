@@ -40,7 +40,7 @@ const CodingCowboyTitle = () => (
 )
 
 const SocialIcons = () => (
-  <div id="socialIconsContainer" style={{ zIndex: 5 }}>
+  <div id="socialIconsContainer">
     <SocialMediaIcon id="linkedIn" href="https://www.linkedin.com/in/brentvale" altText="Brent Taylor Vale LinkedIn Profile" />
     <SocialMediaIcon id="twitter" href="https://twitter.com/ValeBrent" altText="Brent Taylor Vale Twitter Profile" />
     <SocialMediaIcon id="github" href="https://github.com/brentvale" altText="Brent Taylor Vale Github Profile" />

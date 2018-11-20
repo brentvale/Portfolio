@@ -6,15 +6,13 @@ class SocialMediaIconDisplay extends Component {
     this.state = {
       hovering: false,
     };
-    this.handleOnMouseEnter = this.handleOnMouseEnter.bind(this);
-    this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
   }
 
-  handleOnMouseEnter() {
+  handleOnMouseEnter = () => {
     this.setState({ hovering: true });
   }
 
-  handleOnMouseLeave() {
+  handleOnMouseLeave = () => {
     this.setState({ hovering: false });
   }
 
@@ -31,8 +29,8 @@ class SocialMediaIconDisplay extends Component {
         <div
           id={id}
           className={klassName}
-          onMouseEnter={this.handleOnMouseEnter}
-          onMouseLeave={this.handleOnMouseLeave}
+          onMouseEnter={() => this.handleOnMouseEnter()}
+          onMouseLeave={() => this.handleOnMouseLeave()}
         >
           <div className="face one" />
           <div className="face two" />
