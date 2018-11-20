@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import debounce from 'lodash/debounce';
 
+import RobotChickens from './screens/chickens/robot_chickens';
 import WorkExperience from './screens/work/work_experience';
 import IntroSectionContainer from './screens/intro/section_container';
 import Footer from './screens/footer';
@@ -39,6 +40,8 @@ class App extends Component {
       <div className="App">
 				<IntroSectionContainer backgroundHeight={this.state.backgroundHeight}
 															 windowWidth={this.state.windowWidth}/>
+
+				<RobotChickens windowWidth={this.state.windowWidth}/>
 
 				<WorkExperience />
 

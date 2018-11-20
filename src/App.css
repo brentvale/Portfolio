@@ -159,6 +159,37 @@ h1,h2,h3{
 	text-align: center;
 }
 
+/*CHICKENS*/
+#chickenContainer{
+	height: 600px;
+	width: 100%;
+	position: relative;
+}
+.robot-chicken{
+	background-image: url('./images/chicken_sprite.png');
+	background-size: 300px 100px;
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+	position:absolute;
+	height: 100px;
+	width: 100px;
+}
+.robot-chicken-walking{
+	animation-name: chicken-walking;
+	animation-duration: 0.3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: steps(3);
+}
+@keyframes chicken-walking {
+	from{
+		background-position-x:0px;
+	}
+	to{
+		background-position-x:-300px;
+	}
+}
+/*END CHICKENS*/
+
 /*DRONE*/
 #skypixelContainer{
 	position: absolute;
