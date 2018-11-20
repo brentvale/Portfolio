@@ -43,7 +43,7 @@ class App extends Component {
 
 				<RobotChickens windowWidth={this.state.windowWidth}/>
 
-				<WorkExperience />
+				<WorkExperience windowWidth={this.state.windowWidth}/>
 
 				<Footer windowWidth={this.state.windowWidth}/>
       </div>

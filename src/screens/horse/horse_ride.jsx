@@ -62,5 +62,5 @@ export default class HorseRide extends Component {
 const container = {
   position: 'relative',
   width: '100%',
-  height: '50px',
+  height: '40px',
 };

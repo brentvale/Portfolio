@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import HorseRide from './horse/horse_ride';
 
 const container = {
   width: '100%',
@@ -18,7 +17,6 @@ class Footer extends Component {
   render(){
     return(
       <div style={container}>
-        <HorseRide windowWidth={this.props.windowWidth}/>
         <div style={bottomSection}>
           <a
             href={'https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbrentvale.github.io%2Fportfolio'}

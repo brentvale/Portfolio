@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { map } from 'lodash';
 
+import HorseRide from '../horse/horse_ride';
 import ReactLogo from '../../images/reactLogo';
 import NodeLogo from '../../images/nodeLogo';
 import RoRLogo from '../../images/RoR';
@@ -158,6 +159,7 @@ export default class WorkExperience extends Component {
               <h1>LOADING VIDEOS FROM YOUTUBE</h1>
             </div>}
         <div style={{ height: '50px', width: '100%' }} />
+        <HorseRide windowWidth={this.props.windowWidth}/>
       </div>
     );
   }
