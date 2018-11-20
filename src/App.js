@@ -45,7 +45,7 @@ class App extends Component {
 
 				<WorkExperience />
 
-				<Footer />
+				<Footer windowWidth={this.state.windowWidth}/>
       </div>
     );
   }

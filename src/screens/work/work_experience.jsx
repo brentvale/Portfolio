@@ -50,9 +50,6 @@ const WORK = [
   },
 ];
 
-const HORSE_MOVE_DISTANCE = 4; // pixel horse moves per interval
-const HORSE_SPRITE_INTERVAL_DURATION = 40;
-
 const DEFAULT_VIDEO_HEIGHT = 315;
 const DEFAULT_VIDEO_WIDTH = 560;
 const REDUCTION_PERCENT = 0.60; // 60%
@@ -97,7 +94,6 @@ export default class WorkExperience extends Component {
   constructor() {
     super();
     this.state = {
-      left: 0,
       okToLoadYouTubeVideos: false,
       windowWidth: 0,
       videoSectionHeight: DEFAULT_VIDEO_HEIGHT,
@@ -106,47 +102,46 @@ export default class WorkExperience extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateDimensions);
     this.updateDimensions();
     this.loadVideosTimeout = setTimeout(() => {
-      this.setState({ okToLoadYouTubeVideos: true });
+      this.setState({ okToLoadYouTubeVideos: true }, () => {
+        this.forceUpdate();
+      });
     }, DELAY_UNTIL_VIDEO_LOAD);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateDimensions);
     if (this.loadVideosTimeout) {
       clearTimeout(this.loadVideosTimeout);
     }
   }
 
-  startHorseTimer = () => {
-    this.horseInterval = setInterval(() => {
-      this.setState({
-        left: (this.state.left < this.state.windowWidth) ? this.state.left + HORSE_MOVE_DISTANCE : 0,
-      });
-    }, HORSE_SPRITE_INTERVAL_DURATION);
-  };
+  shouldComponentUpdate(nextProps){
+    if(this.props.windowWidth !== nextProps.windowWidth){
+      return true;
+    }
+    return false;
+  }
+
+  componentDidUpdate(nextProps){
+    if(this.props.windowWidth !== nextProps.windowWidth){
+      this.updateDimensions();
+    }
+  }
 
   updateDimensions = () => {
-    if (this.horseInterval) {
-      clearInterval(this.horseInterval);
-    }
     this.setState({
       windowWidth: window.innerWidth,
       videoSectionHeight: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
         ? VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT,
       videoSectionWidth: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
         ? VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH,
-    }, () => {
-      this.startHorseTimer();
     });
   };
 
   render() {
     return (
       <div className={'flexCentered'}>
-        <HorseRiding left={this.state.left}/>
         {map(WORK, (info, idx) => <WorkBlock info={info} key={idx}/>)}
         <WorkBlockLookingForMore />
         <SectionDivider />
@@ -162,19 +157,11 @@ export default class WorkExperience extends Component {
           : <div>
               <h1>LOADING VIDEOS FROM YOUTUBE</h1>
             </div>}
+        <div style={{ height: '50px', width: '100%' }} />
       </div>
     );
   }
 }
-
-const HorseRiding = ({ left }) => (
-  <div style={{ position: 'relative', width: '100%' }}>
-    <div
-      id={'horseSprite'}
-      style={{ position: 'absolute', left, top: -50 }}
-    />
-  </div>
-);
 
 const SectionDivider = () => (
   <div style={sectionEndStyle}>

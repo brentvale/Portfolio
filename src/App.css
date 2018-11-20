@@ -92,6 +92,7 @@ h1,h2,h3{
 	background-position: 0 0;
 	height: 36px;
 	width: 50px;
+    position: absolute;
 	animation: horse-ride 0.4s steps(12) infinite;
 }
 @keyframes horse-ride {
