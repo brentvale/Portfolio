@@ -176,6 +176,84 @@ h1,h2,h3{
     height: 100%;
     width: 100%;
 }
+.robot-chicken-eating{
+    background-image: url('./images/chicken_eating_sprite_600x600.png');
+    background-size: 300px 300px;
+    background-position:0px 0px;
+    background-repeat:no-repeat;
+    position:absolute;
+    height: 100px;
+    width: 100px;
+}
+.robot-chicken-eating-facing-right{
+    background-image: url('./images/chicken_eating_sprite_facing_right_600x600.png');
+    background-size: 300px 300px;
+    background-position:0px 0px;
+    background-repeat:no-repeat;
+    position:absolute;
+    height: 100px;
+    width: 100px;
+}
+.chicken-eating{
+     animation-name: chicken-eating-x, chicken-eating-y;
+     animation-duration: 0.5s, 1.5s;
+     animation-iteration-count: infinite, infinite;
+     animation-timing-function: steps(3), steps(3);
+}
+@keyframes chicken-eating-x {
+    from{
+        background-position-x:0px;
+    }
+    to{
+        background-position-x:-300px;
+    }
+}
+@keyframes chicken-eating-y {
+    from{
+        background-position-y: 0px;
+    }
+    to{
+        background-position-y: -300px;
+    }
+}
+
+.robot-chicken-eating-continuously{
+    background-image: url('./images/chicken_eating_sprite_600x600.png');
+    background-size: 300px 300px;
+    background-position: -0px -200px;
+    background-repeat:no-repeat;
+    position:absolute;
+    left: 200px;
+    top: 200px;
+    height: 100px;
+    width: 100px;
+}
+.robot-chicken-eating-continuously-facing-right{
+    background-image: url('./images/chicken_eating_sprite_facing_right_600x600.png');
+    background-size: 300px 300px;
+    background-position: -0px -200px;
+    background-repeat:no-repeat;
+    position:absolute;
+    left: 200px;
+    top: 200px;
+    height: 100px;
+    width: 100px;
+}
+.continuously-eating{
+    animation-name: chicken-eating-continuously;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite, infinite;
+    animation-timing-function: steps(2);
+}
+@keyframes chicken-eating-continuously {
+    from{
+        background-position: -0px -200px;
+    }
+    to{
+        background-position: -200px -200px;
+    }
+}
+
 .robot-chicken-move-left{
 	background-image: url('./images/chickens_walking_sprite_right_to_left.png');
 }
