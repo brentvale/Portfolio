@@ -4,19 +4,57 @@ const MOVE_KLASS_FROM_DIRECTION = {
   left: 'robot-chicken-move-left',
   right: 'robot-chicken-move-right'
 };
-const STOP_AND_EAT_RANDOM = 1000; //chances of stopping and eating
+const STOP_AND_EAT_RANDOM = 200; //chances of stopping and eating
 
 const Y_POS_TO_SIZE = {
-  1: 'chicken-depth-1',
-  2: 'chicken-depth-2',
-  3: 'chicken-depth-3',
-  4: 'chicken-depth-4',
-  5: 'chicken-depth-5',
-  6: 'chicken-depth-6',
-  7: 'chicken-depth-7',
-  8: 'chicken-depth-8',
-  9: 'chicken-depth-9',
-  10: 'chicken-depth-10',
+  1: 'chicken-depth-1', //50%
+  2: 'chicken-depth-2', //55%
+  3: 'chicken-depth-3', //60%
+  4: 'chicken-depth-4', //65%
+  5: 'chicken-depth-5', //70%
+  6: 'chicken-depth-6', //75%
+  7: 'chicken-depth-7', //80%
+  8: 'chicken-depth-8', //85%
+  9: 'chicken-depth-9', //90%
+  10: 'chicken-depth-10', //100%
+};
+
+const PERCENT_FROM_Y_POS = {
+  1: .5,
+  2: .55,
+  3: .6,
+  4: .65,
+  5: .7,
+  6: .75,
+  7: .8,
+  8: .85,
+  9: .9,
+  10: 1.0,
+};
+const EAT_LEFT_OFFSET = {
+  1: 32,
+  2: 0,
+  3: 0,
+  4: 26,
+  5: 0,
+  6: 22,
+  7: 0,
+  8: 20,
+  9: 0,
+  10: 18,
+};
+
+const EAT_RIGHT_OFFSET = {
+  1: 58,
+  2: 0,
+  3: 0,
+  4: 60,
+  5: 0,
+  6: 61,
+  7: 0,
+  8: 70,
+  9: 0,
+  10: 75,
 };
 
 // EAT CYCLE
@@ -26,12 +64,19 @@ const Y_POS_TO_SIZE = {
 // chicken pops up stopped for 1 second
 // chicken keeps walking
 
+const generateId = () => {
+  return (Math.random()*5000000).toString();
+}
+
 export default class Chicken{
   constructor(props){
+    this.id = props.id || generateId();
     this.screenWidth = props.screenWidth;
     this.xPos = Math.floor(Math.random()*(props.screenWidth - IMAGE_WIDTH) + IMAGE_WIDTH/2);
     this.yPos = props.yPos || Math.floor(Math.random()*10 + 1);
-    this.speed = Math.floor(Math.random()*2)+1;
+    this.eatLeftXOffset = EAT_LEFT_OFFSET[this.yPos];
+    this.eatRightXOffset = EAT_RIGHT_OFFSET[this.yPos];
+    this.speed = props.speed || Math.floor(Math.random()*3)+1;
     this.direction = 'left';
     this.isThinking = false;
     this.isEating = false;
@@ -82,11 +127,7 @@ export default class Chicken{
       }
     } else {
       if(!this.isThinking && !this.isEating){
-        if(Math.floor(Math.random()*STOP_AND_EAT_RANDOM) === 1){
-          this.letChickenEat();
-        } else {
-          this.xPos = this.direction === 'left' ? this.xPos - this.speed : this.xPos + this.speed;
-        }
+        this.xPos = this.direction === 'left' ? this.xPos - this.speed : this.xPos + this.speed;
       }
     }
   };
