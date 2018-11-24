@@ -63,5 +63,8 @@ export default class Field{
 
   setScreenWidth = (newWidth) => {
     this.screenWidth = newWidth;
+    this.chickens.forEach(chicken => {
+      chicken.screenWidth = newWidth;
+    })
   };
 }

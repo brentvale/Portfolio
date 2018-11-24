@@ -39,20 +39,19 @@ class RobotChickens extends Component {
           field,
           chickens,
         }, () => {
-          this.forceUpdate();
           this.tossRecycleable();
           this.animateX();
         });
       } else {
-        forEach(this.state.chickens, chicken => {
-          chicken.setScreenWidth(this.props.windowWidth);
-        });
+        this.tossRecycleable();
+        this.animateX();
       }
     }
   }
 
   tossRecycleable = () => {
-      this.state.field.tossRecycleable();
+    this.state.field.setScreenWidth(this.props.windowWidth);
+    this.state.field.tossRecycleable();
   };
 
   componentWillUnmount(){
@@ -60,6 +59,9 @@ class RobotChickens extends Component {
   }
 
   animateX = () => {
+    if(this.animationInterval){
+      clearInterval(this.animationInterval);
+    }
     this.animationInterval = setInterval(() => {
       this.state.field.moveChickens();
       this.forceUpdate();
