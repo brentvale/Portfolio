@@ -20,7 +20,6 @@ export default class Field{
     return random;
   }
   tossRecycleable = () => {
-    console.log("TOSSING");
     this.pieces = {};
     setTimeout(() => {
       this.chickens.forEach((chicken) => {
