@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import forEach from 'lodash/forEach';
 import map from 'lodash/map';
 
 import Chicken from '../../js/Chicken';
 import Field from '../../js/Field';
+
+const ANIMATION_INTERVAL = 32;
 
 class RobotChickens extends Component {
   constructor(props) {
@@ -65,30 +66,37 @@ class RobotChickens extends Component {
     this.animationInterval = setInterval(() => {
       this.state.field.moveChickens();
       this.forceUpdate();
-    }, 32);
+    }, ANIMATION_INTERVAL);
   };
 
   render() {
     return (
       <div id={'chickenContainer'}>
-
         <h2>Feed my robot chickens!</h2>
-        <p></p>
 
-        <CansContainer tossRecycleable={this.tossRecycleable}/>
+        {Boolean(this.state.field) &&
+          <CansContainer tossRecycleable={this.tossRecycleable}
+                         blueUnavailable={Object.keys(this.state.field.pieces.bluePieces).length}
+                         greenUnavailable={Object.keys(this.state.field.pieces.greenPieces).length}
+                         redUnavailable={Object.keys(this.state.field.pieces.redPieces).length}
+          />}
+
 
         <div style={{ height: '50px' }} />
+
         <div className={'inner'}>
-          {map(this.state.chickens, (chicken, idx) => {
-            return <div key={idx.toString()}
+          {map(this.state.chickens, chicken => {
+            return <div key={chicken.id.toString()}
                         style={{ left: chicken.xPos }}
                         className={chicken.getKlassName()}/>
           })}
           {Boolean(this.state.field) &&
-            map(this.state.field.pieces, (obj, chickenId) => {
-              return <div key={chickenId}
-                          className={`recycle-depth-${obj.yPos} recycle-piece`}
-                          style={{ left: obj.xPos, backgroundColor: obj.color }}/>
+            map(this.state.field.pieces, obj => {
+              return map(obj, (chickenObj, chickenId) => {
+                return <div key={chickenId}
+                            className={`recycle-depth-${chickenObj.yPos} recycle-piece recycle-background-${chickenObj.color}`}
+                            style={{ left: chickenObj.xPos }}/>
+              })
           })}
 
         </div>
@@ -97,19 +105,24 @@ class RobotChickens extends Component {
   }
 }
 
-const CansContainer = ({ tossRecycleable }) => (
+const CansContainer = ({
+  tossRecycleable,
+  blueUnavailable,
+  greenUnavailable,
+  redUnavailable,
+}) => (
   <div className={'all-cans-container'}>
     <div className={'can-container'}>
       <div onClick={() => { tossRecycleable('blue') }}
-           className={'can blue-can'}/>
+           className={`can ${blueUnavailable ? 'can-inactive' : ''} blue-can${blueUnavailable ? '-inactive' : ''}`}/>
     </div>
     <div className={'can-container'}>
       <div onClick={() => { tossRecycleable('green') }}
-           className={'can green-can'}/>
+           className={`can ${greenUnavailable ? 'can-inactive' : ''} green-can${greenUnavailable ? '-inactive' : ''}`}/>
     </div>
     <div className={'can-container'}>
       <div onClick={() => { tossRecycleable('red') }}
-           className={'can red-can'}/>
+           className={`can ${redUnavailable ? 'can-inactive' : ''} red-can${redUnavailable ? '-inactive' : ''}`}/>
     </div>
   </div>
 );

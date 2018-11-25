@@ -179,15 +179,18 @@ h1,h2,h3{
 	display: flex;
 }
 .can{
-	background-image: url('./images/cans_sprite_300x160.png');
-	background-size: 75px 40px;
+	background-image: url('./images/cans_and_opacity_cans_sprite_300x320.png');
+	background-size: 75px 80px;
 	background-repeat:no-repeat;
 	height: 40px;
 	width: 25px;
 	display: inline-block;
 }
 .can:hover{
-	cursor: hand;
+	cursor: grab;
+}
+.can-inactive:hover{
+	cursor: no-drop;
 }
 .blue-can{
 	background-position:0px 0px;
@@ -197,6 +200,15 @@ h1,h2,h3{
 }
 .red-can{
 	background-position:-50px 0px;
+}
+.blue-can-inactive{
+	background-position:0px -40px;
+}
+.green-can-inactive{
+	background-position:-25px -40px;
+}
+.red-can-inactive{
+	background-position:-50px -40px;
 }
 #chickenContainer{
 	height: 500px;
@@ -368,6 +380,15 @@ h1,h2,h3{
     height: 10px;
     width: 10px;
     position: absolute;
+}
+.recycle-background-red{
+	background-color: red;
+}
+.recycle-background-green{
+	background-color: green;
+}
+.recycle-background-blue{
+	background-color: blue;
 }
 /* ImageHeight = 100px*/
 .recycle-depth-1{

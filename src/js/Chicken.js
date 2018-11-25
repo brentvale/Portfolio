@@ -4,7 +4,6 @@ const MOVE_KLASS_FROM_DIRECTION = {
   left: 'robot-chicken-move-left',
   right: 'robot-chicken-move-right'
 };
-const STOP_AND_EAT_RANDOM = 200; //chances of stopping and eating
 
 const Y_POS_TO_SIZE = {
   1: 'chicken-depth-1', //50%
@@ -17,19 +16,6 @@ const Y_POS_TO_SIZE = {
   8: 'chicken-depth-8', //85%
   9: 'chicken-depth-9', //90%
   10: 'chicken-depth-10', //100%
-};
-
-const PERCENT_FROM_Y_POS = {
-  1: .5,
-  2: .55,
-  3: .6,
-  4: .65,
-  5: .7,
-  6: .75,
-  7: .8,
-  8: .85,
-  9: .9,
-  10: 1.0,
 };
 const EAT_LEFT_OFFSET = {
   1: 32,
@@ -65,8 +51,8 @@ const EAT_RIGHT_OFFSET = {
 // chicken keeps walking
 
 const generateId = () => {
-  return (Math.random()*5000000).toString();
-}
+  return Math.floor(Math.random()*5000000).toString();
+};
 
 export default class Chicken{
   constructor(props){

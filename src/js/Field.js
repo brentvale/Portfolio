@@ -1,4 +1,3 @@
-import indexOf from 'lodash/indexOf';
 const CHICKEN_EATING_DURATION = 6000;
 const CHICKEN_IMAGE_WIDTH = 100;
 
@@ -6,12 +5,12 @@ export default class Field{
   constructor(props){
     this.screenWidth = props.screenWidth;
     this.chickens = props.chickens;
-    this.pieces = {};
-    this.redPieces = {};
-    this.bluePieces = {};
-    this.greenPieces = {};
+    this.pieces = {
+      redPieces: {},
+      bluePieces: {},
+      greenPieces: {},
+    };
     this.moveableChickens = false;
-    this.currentColors = [];
   }
 
   generateXPos = () => {
@@ -22,33 +21,54 @@ export default class Field{
     if(random > this.screenWidth - CHICKEN_IMAGE_WIDTH){
       random = this.screenWidth - (CHICKEN_IMAGE_WIDTH + 1);
     }
-    return random;
-  }
+    return Math.floor(random);
+  };
+
   tossRecycleable = (color) => {
+    this.moveableChickens = true;
     setTimeout(() => {
+      switch(color){
+        case 'red':
+          this.pieces.redPieces = {};
+          break;
+        case 'green':
+          this.pieces.greenPieces = {};
+          break;
+        case 'blue':
+          this.pieces.bluePieces = {};
+          break;
+      }
+
       this.chickens.forEach((chicken) => {
-        this.moveableChickens = true;
         switch(color){
           case 'red':
-            this.redPieces = {};
-            this.redPieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
+            this.pieces.redPieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
             break;
           case 'blue':
-            this.bluePieces = {};
-            this.bluePieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
+            this.pieces.bluePieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
             break;
           case 'green':
-            this.greenPieces = {};
-            this.greenPieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
+            this.pieces.greenPieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
             break;
         }
       });
+
     }, 200);
   };
 
-  removePiece = (chickenId) => {
+  removePiece = (chickenId, color) => {
     setTimeout(() => {
-      delete(this.pieces[`${chickenId}`]);
+      switch(color){
+        case 'red':
+          delete(this.pieces.redPieces[`${chickenId}`]);
+          break;
+        case 'blue':
+          delete(this.pieces.bluePieces[`${chickenId}`]);
+          break;
+        case 'green':
+          delete(this.pieces.greenPieces[`${chickenId}`]);
+          break;
+      }
     }, CHICKEN_EATING_DURATION);
   };
 
@@ -56,10 +76,12 @@ export default class Field{
     if(this.moveableChickens){
       this.chickens.forEach((chicken) => {
         chicken.move();
-        if(this.withinEatingDistance(chicken)){
+
+        const { color, isWithinEatingDistance } = this.withinEatingDistance(chicken);
+        if(isWithinEatingDistance){
           if(!chicken.isEating){
             chicken.letChickenEat();
-            this.removePiece(chicken.id);
+            this.removePiece(chicken.id, color);
           }
         }
       });
@@ -67,14 +89,68 @@ export default class Field{
   };
 
   withinEatingDistance = (chicken) => {
-    if(!this.redPieces[chicken.id] && !this.bluePieces[chicken.id] && !this.greenPieces[chicken.id]){
+    if(!this.pieces.redPieces[chicken.id] && !this.pieces.bluePieces[chicken.id] && !this.pieces.greenPieces[chicken.id]){
       return false;
     }
+    return this.closestPiece(chicken);
+  };
+
+  closestPiece = (chicken) => {
+    let closest;
+    let color;
+
     if(chicken.direction === 'left'){
-      return Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces[chicken.id].xPos) <= chicken.speed;
+      if(this.pieces.redPieces[chicken.id]){
+        closest =  Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.redPieces[chicken.id].xPos);
+        color = 'red';
+      }
+      if(this.pieces.bluePieces[chicken.id]){
+        if(closest && Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.bluePieces[chicken.id].xPos) < closest){
+          closest = Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.bluePieces[chicken.id].xPos);
+          color = 'blue';
+        }
+        if(!closest){
+          closest = Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.bluePieces[chicken.id].xPos);
+          color = 'blue';
+        }
+      }
+      if(this.pieces.greenPieces[chicken.id]){
+        if(closest && Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.greenPieces[chicken.id].xPos) < closest){
+          closest = Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.greenPieces[chicken.id].xPos);
+          color = 'green';
+        }
+        if(!closest){
+          closest = Math.abs(chicken.xPos + chicken.eatLeftXOffset - this.pieces.greenPieces[chicken.id].xPos);
+          color = 'green';
+        }
+      }
     } else {
-      return Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces[chicken.id].xPos) <= chicken.speed;
+      if(this.pieces.redPieces[chicken.id]){
+        closest =  Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.redPieces[chicken.id].xPos);
+        color = 'red';
+      }
+      if(this.pieces.bluePieces[chicken.id]){
+        if(closest && Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.bluePieces[chicken.id].xPos) < closest){
+          closest = Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.bluePieces[chicken.id].xPos);
+          color = 'blue';
+        }
+        if(!closest){
+          closest = Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.bluePieces[chicken.id].xPos);
+          color = 'blue';
+        }
+      }
+      if(this.pieces.greenPieces[chicken.id]){
+        if(closest && Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.greenPieces[chicken.id].xPos) < closest){
+          closest = Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.greenPieces[chicken.id].xPos);
+          color = 'green';
+        }
+        if(!closest){
+          closest = Math.abs(chicken.xPos + chicken.eatRightXOffset - this.pieces.greenPieces[chicken.id].xPos);
+          color = 'green';
+        }
+      }
     }
+    return { color, isWithinEatingDistance: closest <= chicken.speed };
   };
 
   setScreenWidth = (newWidth) => {
