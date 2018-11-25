@@ -137,6 +137,8 @@ export default class WorkExperience extends Component {
         ? VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT,
       videoSectionWidth: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
         ? VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH,
+    }, () => {
+      this.forceUpdate();
     });
   };
 
