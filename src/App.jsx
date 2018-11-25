@@ -22,7 +22,6 @@ class App extends Component {
 		window.addEventListener('resize', debounce(this.handleResizeBackground.bind(this), 200));
 		this.handleResizeBackground();
 		this.setState({ isMobile: isMobile() });
-		alert(`IS MOBILE : ${isMobile()}`);
 	}
 
 	componentWillUnmount(){
