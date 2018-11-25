@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 import RobotChickens from './screens/chickens/robot_chickens';
 import WorkExperience from './screens/work/work_experience';
 import IntroSectionContainer from './screens/intro/section_container';
-import Footer from './screens/footer';
+import Footer from './screens/footer.jsx';
 import { isMobile } from './utils/isMobile';
 
 import './App.css';
