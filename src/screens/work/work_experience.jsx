@@ -35,7 +35,7 @@ const WORK = [
       url: 'http://www.timelesslapse.com',
       title: 'Timelesslapse Hobby Site',
     },
-    description: 'Compile daily photos to create timelapses of life\'s unforgettable moments.  Applicable for the month of Movember, pregnancy tracking, and the hobby gardener.  The image stabilization algorithm detects sharp gradient changes to create pixel maps which are easily adjusted to stabilize subsequent images. Features multi-lingual options: English, Spanish, Klingon.',
+    description: 'If I didn\'t code for work, I\'d still do it as a hobby. Timelesslapse is my favorite hobby project. Compile daily photos to create timelapses of life\'s unforgettable moments.  Applicable for the month of Movember, pregnancy tracking, and the hobby gardener.  The image stabilization algorithm detects sharp gradient changes to create pixel maps which are easily adjusted to stabilize subsequent images. Features multi-lingual options: English, Spanish, Klingon.',
     technologies: [
       {
         key: 2,
