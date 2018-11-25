@@ -203,7 +203,7 @@ const VideoSection = ({ height, width, videoObj }) => (
       {videoObj.title}
     </h3>
     <p className={'mediumPadding sectionFont'}
-        style={{ width: width - 100, textAlign: 'left' }}
+        style={{ textAlign: 'left' }}
     >
       {videoObj.comments}
     </p>
