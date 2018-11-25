@@ -210,10 +210,6 @@ h1,h2,h3{
 .red-can-inactive{
 	background-position:-50px -40px;
 }
-.robot-chicken-instructions{
-	font-size: 12px;
-	text-align: center;
-}
 #chickenContainer{
 	min-height: 500px;
 	width: 100%;

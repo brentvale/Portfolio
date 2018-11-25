@@ -16,6 +16,10 @@ const robotChickens = `Wouldn't it be cool if there were robot chickens? I think
   purpose of cleaning up trash and recyling the recycleables.  If you're not convinced of 
   the utility (or comedic value) just toss a can to my robot chickens!`;
 
+const robotChickenFacts = `Some facts you should know about robot chickens: they love shredded aluminum 
+more than anything else, they don't do much other than walk an eat, they will save the environment so 
+toss them a treat!`;
+
 class RobotChickens extends Component {
   constructor(props) {
     super(props);
@@ -149,9 +153,30 @@ const ChickenStory = () => (
       <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
         {robotChickens}
       </p>
+      <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
+        {robotChickenFacts}
+      </p>
 
-      <p className={'robot-chicken-instructions raleway'}>Click a can to feed it to the chickens</p>
-      <p className={'robot-chicken-instructions raleway'}>Once all pieces have been eaten, the can will replenish</p>
+      <p className={'mediumPadding sectionFont'}
+         style={{
+           textAlign: 'center',
+           fontSize: '12px',
+           marginBottom: '5px',
+           marginTop: '5px',
+         }}
+      >
+        Click a can to feed the aluminum shreds to the chickens.
+      </p>
+      <p className={'mediumPadding sectionFont'}
+         style={{
+           textAlign: 'center',
+           fontSize: '12px',
+           marginBottom: '5px',
+           marginTop: '5px',
+         }}
+      >
+        Once all pieces have been eaten, the can will replenish.
+      </p>
     </div>
   </div>
 );
