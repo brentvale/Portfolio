@@ -22,18 +22,19 @@ class App extends Component {
 		window.addEventListener('resize', debounce(this.handleResizeBackground.bind(this), 200));
 		this.handleResizeBackground();
 		this.setState({ isMobile: isMobile() });
+		alert(`IS MOBILE : ${isMobile()}`);
 	}
 
 	componentWillUnmount(){
 		window.removeEventListener('resize', this.handleResizeBackground);
 	}
 	
-	handleResizeBackground = () => {
+	handleResizeBackground = () => { // eslint-disable-line
 		const windowWidth = window.innerWidth;
 		//1600width x 2160 height = 74%
 		const heightOfExpandingDiv = (windowWidth < 740) ? 1000 : 1.35*windowWidth;
 		this.setState({ backgroundHeight: heightOfExpandingDiv, windowWidth: windowWidth });
-	}
+	};
 	
   render() {
     return (

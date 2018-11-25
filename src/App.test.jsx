@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import App from './App';
 
 import WorkSectionContainer from './screens/work/section_container';

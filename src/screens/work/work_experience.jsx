@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { map } from 'lodash';
 
 import HorseRide from '../horse/horse_ride';
-import ReactLogo from '../../images/reactLogo';
-import NodeLogo from '../../images/nodeLogo';
-import RoRLogo from '../../images/RoR';
+import ReactLogo from '../../images/reactLogo.jsx';
+import NodeLogo from '../../images/nodeLogo.jsx';
+import RoRLogo from '../../images/RoR.jsx';
 
 const WORK = [
   {
@@ -192,7 +192,7 @@ const TechnologyBox = ({ tech }) => (
 );
 
 const VideoSection = ({ height, width, videoObj }) => (
-  <div className={'flexCentered'}
+  <div className={'workExperienceSection'}
        style={{ marginBottom: '20px' }}>
     <h3
       style={{
@@ -203,7 +203,10 @@ const VideoSection = ({ height, width, videoObj }) => (
       {videoObj.title}
     </h3>
     <p className={'mediumPadding sectionFont'}
-        style={{ width: width - 100 }}>{videoObj.comments}</p>
+        style={{ width: width - 100, textAlign: 'left' }}
+    >
+      {videoObj.comments}
+    </p>
     <iframe
       title={videoObj.title}
       width={width}
