@@ -62,32 +62,32 @@ const YOU_TUBE_VIDEOS = [
   {
     url: 'https://www.youtube.com/embed/j5sYjttLjL4',
     title: 'Vail Shred Crew',
-    comments: '',
+    comments: 'I love to snowboard.  As my skills have progressed my desire to capture the mountain has grown too.  Here\'s my favorite snowboarding videos set to Incubus\' \'Aqueous Transmission\'.',
   },
   {
     url: 'https://www.youtube.com/embed/A8JJpMvIC1k',
     title: 'Boogey Boarding : Honeymoon',
-    comments: '',
+    comments: 'I married a lady that loves to have as much fun as I do.  For our honeymoon we went to Maui, Hawaii and enjoyed a beautiful day boogey boarding on the small but exciting waves of Makena Beach.',
   },
   {
     url: 'https://www.youtube.com/embed/hfenhcmegF8',
     title: 'Building a Pergola',
-    comments: '',
+    comments: 'I\'ve always been an engineer, I haven\'t always known how to code.  Construction projects are another passion of mine whether remodeling a bathroom, building a run-in-shed, or a Pergola for our wedding.',
   },
   {
     url: 'https://www.youtube.com/embed/CQnfdlkGZ30',
     title: 'Keyo Ski Video',
-    comments: '',
+    comments: 'A company that skis together succeeds together!! We had a blast at Northstar-at-Tahoe in Truckee, CA in December of 2017. Here\'s our trip set to Houndmouth\'s \'Sedona\'.',
   },
   {
     url: 'https://www.youtube.com/embed/PLlrmsRwxEI',
     title: 'Brent and Brutus',
-    comments: '',
+    comments: 'Yep.  I was a cowboy, and still do some cowboy-ing around on the weekends.  When I worked on an 88,000 acre ranch in Colorado Springs, CO, I had two trusty horses in my string.  This was my last ride with \'Brutus\', a great friend and a heck of a horse.',
   },
   {
     url: 'https://www.youtube.com/embed/-oWFcyOQed4',
     title: 'Building a chicken coop',
-    comments: '',
+    comments: 'With 17 laying hens and a miniature rooster named Napolean, it can be hard to keep the wildlife away.  I used leftover barn wood to build our hardworking ladies a place to lay eggs and sleep at night protected from the elements and predators.',
   },
 ];
 
@@ -190,9 +190,18 @@ const TechnologyBox = ({ tech }) => (
 );
 
 const VideoSection = ({ height, width, videoObj }) => (
-  <div>
-    <h3 style={sectionTitleText}>{videoObj.title}</h3>
-    <p>{videoObj.comments}</p>
+  <div className={'flexCentered'}
+       style={{ marginBottom: '20px' }}>
+    <h3
+      style={{
+        ...sectionTitleText,
+        marginBottom: 0,
+      }}
+    >
+      {videoObj.title}
+    </h3>
+    <p className={'mediumPadding sectionFont'}
+        style={{ width: width - 100 }}>{videoObj.comments}</p>
     <iframe
       title={videoObj.title}
       width={width}
