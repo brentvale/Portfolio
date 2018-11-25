@@ -171,7 +171,7 @@ const SectionDivider = () => (
   </div>
 );
 
-const SectionTitle = ({ title }) => (
+export const SectionTitle = ({ title }) => (
   <h2
     className={'flexCentered mediumPadding'}
     style={sectionTitleText}

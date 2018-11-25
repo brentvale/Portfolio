@@ -3,8 +3,18 @@ import map from 'lodash/map';
 
 import Chicken from '../../js/Chicken';
 import Field from '../../js/Field';
+import { SectionTitle } from '../work/work_experience';
 
 const ANIMATION_INTERVAL = 32;
+const chickenParagraph = `My wife and I raise laying hens, and have come to love what 
+chickens provide:  fresh eggs with with golden yolks, entertainment in the form of 
+ Chicken TV (we sit and watch and laugh as the girls go about their day), reduction of 
+ garden pests, and a sustainable form of food production.`;
+
+const robotChickens = `Wouldn't it be cool if there were robot chickens? I think so.
+ Create a simple AI that navigates the robot through parks and public spaces with the sole
+  purpose of cleaning up trash and recyling the recycleables.  If you're not convinced of 
+  the utility (or comedic value) just toss a can to my robot chickens!`;
 
 class RobotChickens extends Component {
   constructor(props) {
@@ -72,7 +82,7 @@ class RobotChickens extends Component {
   render() {
     return (
       <div id={'chickenContainer'}>
-        <h2>Feed my robot chickens!</h2>
+        <ChickenStory />
 
         {Boolean(this.state.field) &&
           <CansContainer tossRecycleable={this.tossRecycleable}
@@ -113,16 +123,35 @@ const CansContainer = ({
 }) => (
   <div className={'all-cans-container'}>
     <div className={'can-container'}>
-      <div onClick={() => { tossRecycleable('blue') }}
+      <div onClick={() => { if(!blueUnavailable) tossRecycleable('blue'); }}
            className={`can ${blueUnavailable ? 'can-inactive' : ''} blue-can${blueUnavailable ? '-inactive' : ''}`}/>
     </div>
     <div className={'can-container'}>
-      <div onClick={() => { tossRecycleable('green') }}
+      <div onClick={() => { if(!greenUnavailable) tossRecycleable('green'); }}
            className={`can ${greenUnavailable ? 'can-inactive' : ''} green-can${greenUnavailable ? '-inactive' : ''}`}/>
     </div>
     <div className={'can-container'}>
-      <div onClick={() => { tossRecycleable('red') }}
+      <div onClick={() => { if(!redUnavailable) tossRecycleable('red'); }}
            className={`can ${redUnavailable ? 'can-inactive' : ''} red-can${redUnavailable ? '-inactive' : ''}`}/>
+    </div>
+  </div>
+);
+
+const ChickenStory = () => (
+  <div className={'flexCentered'}>
+    <div className={'workExperienceSection'}
+         style={{ paddingBottom: '0' }}
+    >
+      <SectionTitle title={'Feed My Robot Chickens!'}/>
+      <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
+        {chickenParagraph}
+      </p>
+      <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
+        {robotChickens}
+      </p>
+
+      <p className={'robot-chicken-instructions raleway'}>Click a can to feed it to the chickens</p>
+      <p className={'robot-chicken-instructions raleway'}>Once all pieces have been eaten, the can will replenish</p>
     </div>
   </div>
 );
