@@ -1,3 +1,4 @@
+import indexOf from 'lodash/indexOf';
 const CHICKEN_EATING_DURATION = 6000;
 const CHICKEN_IMAGE_WIDTH = 100;
 
@@ -6,7 +7,11 @@ export default class Field{
     this.screenWidth = props.screenWidth;
     this.chickens = props.chickens;
     this.pieces = {};
+    this.redPieces = {};
+    this.bluePieces = {};
+    this.greenPieces = {};
     this.moveableChickens = false;
+    this.currentColors = [];
   }
 
   generateXPos = () => {
@@ -19,12 +24,24 @@ export default class Field{
     }
     return random;
   }
-  tossRecycleable = () => {
-    this.pieces = {};
+  tossRecycleable = (color) => {
     setTimeout(() => {
       this.chickens.forEach((chicken) => {
         this.moveableChickens = true;
-        this.pieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos() };
+        switch(color){
+          case 'red':
+            this.redPieces = {};
+            this.redPieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
+            break;
+          case 'blue':
+            this.bluePieces = {};
+            this.bluePieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
+            break;
+          case 'green':
+            this.greenPieces = {};
+            this.greenPieces[chicken.id] = { yPos: chicken.yPos, xPos: this.generateXPos(), color: color };
+            break;
+        }
       });
     }, 200);
   };
@@ -50,7 +67,7 @@ export default class Field{
   };
 
   withinEatingDistance = (chicken) => {
-    if(!this.pieces[chicken.id]){
+    if(!this.redPieces[chicken.id] && !this.bluePieces[chicken.id] && !this.greenPieces[chicken.id]){
       return false;
     }
     if(chicken.direction === 'left'){
