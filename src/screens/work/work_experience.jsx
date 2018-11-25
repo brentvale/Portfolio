@@ -96,14 +96,10 @@ export default class WorkExperience extends Component {
     super();
     this.state = {
       okToLoadYouTubeVideos: false,
-      windowWidth: 0,
-      videoSectionHeight: DEFAULT_VIDEO_HEIGHT,
-      videoSectionWidth: DEFAULT_VIDEO_WIDTH,
     };
   }
 
   componentDidMount() {
-    this.updateDimensions();
     this.loadVideosTimeout = setTimeout(() => {
       this.setState({ okToLoadYouTubeVideos: true }, () => {
         this.forceUpdate();
@@ -117,32 +113,12 @@ export default class WorkExperience extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps){
-    if(this.props.windowWidth !== nextProps.windowWidth){
-      return true;
-    }
-    return false;
-  }
-
-  componentDidUpdate(nextProps){
-    if(this.props.windowWidth !== nextProps.windowWidth){
-      this.updateDimensions();
-    }
-  }
-
-  updateDimensions = () => {
-    this.setState({
-      windowWidth: window.innerWidth,
-      videoSectionHeight: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
-        ? VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT,
-      videoSectionWidth: window.innerWidth < DEFAULT_VIDEO_WIDTH + 20
-        ? VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH,
-    }, () => {
-      this.forceUpdate();
-    });
-  };
-
   render() {
+    const videoWidth = this.props.windowWidth < DEFAULT_VIDEO_WIDTH + 20
+      ? VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH;
+    const videoHeight = this.props.windowWidth < DEFAULT_VIDEO_WIDTH + 20
+      ? VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT;
+    console.log("UPDATING WIDTH");
     return (
       <div className={'flexCentered'}>
         {map(WORK, (info, idx) => <WorkBlock info={info} key={idx}/>)}
@@ -154,8 +130,8 @@ export default class WorkExperience extends Component {
               {map(YOU_TUBE_VIDEOS, (videoObj, idx) => <VideoSection
                         key={idx}
                         videoObj={videoObj}
-                        height={this.state.videoSectionHeight}
-                        width={this.state.videoSectionWidth}/>)}
+                        height={videoHeight}
+                        width={videoWidth}/>)}
             </div>
           : <div>
               <h1>LOADING VIDEOS FROM YOUTUBE</h1>
@@ -207,13 +183,13 @@ const VideoSection = ({ height, width, videoObj }) => (
     >
       {videoObj.comments}
     </p>
-    <iframe
-      title={videoObj.title}
-      width={width}
-      height={height}
-      src={videoObj.url}
-      frameBorder="0"
-      allowFullScreen />
+    {/*<iframe*/}
+      {/*title={videoObj.title}*/}
+      {/*width={width}*/}
+      {/*height={height}*/}
+      {/*src={videoObj.url}*/}
+      {/*frameBorder="0"*/}
+      {/*allowFullScreen />*/}
   </div>
 );
 
