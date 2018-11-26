@@ -19,11 +19,10 @@ class App extends Component {
 	}
 	
 	componentDidMount(){
-		window.addEventListener('resize', debounce(this.handleResizeBackground.bind(this), 1000));
-    window.addEventListener('orientationchange', debounce(this.handleResizeBackground.bind(this), 1000));
+		window.addEventListener('resize', debounce(this.handleResizeBackground.bind(this), 400));
 		const isDeviceMobile = isMobile();
 		if(isDeviceMobile){
-
+      window.addEventListener('orientationchange', debounce(this.handleResizeBackground.bind(this), 400));
 		}
 		this.handleResizeBackground();
 		this.setState({ isMobile: isDeviceMobile });
