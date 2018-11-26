@@ -510,9 +510,12 @@ h1,h2,h3{
 	width: 100px;
 	text-align: center;
 }
-#skypixelContainer a span{
+#skypixelContainer a{
 	color: white;
 	text-decoration: none;
+}
+#skypixelContainer a span{
+	color: white;
 }
 #skypixelContainer a:visited{
 	color: white;
