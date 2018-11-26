@@ -118,7 +118,7 @@ export default class WorkExperience extends Component {
       ? VIDEO_WIDTH_NARROW_SCREEN : DEFAULT_VIDEO_WIDTH;
     const videoHeight = this.props.windowWidth < DEFAULT_VIDEO_WIDTH + 20
       ? VIDEO_HEIGHT_NARROW_SCREEN : DEFAULT_VIDEO_HEIGHT;
-    console.log("UPDATING WIDTH");
+
     return (
       <div className={'flexCentered'}>
         {map(WORK, (info, idx) => <WorkBlock info={info} key={idx}/>)}
@@ -167,31 +167,34 @@ const TechnologyBox = ({ tech }) => (
     </div>
 );
 
-const VideoSection = ({ height, width, videoObj }) => (
-  <div className={'workExperienceSection'}
-       style={{ marginBottom: '20px' }}>
-    <h3
-      style={{
-        ...sectionTitleText,
-        marginBottom: 0,
-      }}
-    >
-      {videoObj.title}
-    </h3>
-    <p className={'mediumPadding sectionFont'}
-        style={{ textAlign: 'left' }}
-    >
-      {videoObj.comments}
-    </p>
-    {/*<iframe*/}
-      {/*title={videoObj.title}*/}
-      {/*width={width}*/}
-      {/*height={height}*/}
-      {/*src={videoObj.url}*/}
-      {/*frameBorder="0"*/}
-      {/*allowFullScreen />*/}
-  </div>
-);
+const VideoSection = ({ height, width, videoObj }) => {
+  console.log("UPDATING VIDEO SECTION ", width);
+  return(
+    <div className={'workExperienceSection'}
+         style={{ marginBottom: '20px' }}>
+      <h3
+        style={{
+          ...sectionTitleText,
+          marginBottom: 0,
+        }}
+      >
+        {videoObj.title}
+      </h3>
+      <p className={'mediumPadding sectionFont'}
+         style={{ textAlign: 'left' }}
+      >
+        {videoObj.comments}
+      </p>
+      <iframe
+        title={videoObj.title}
+        width={width}
+        height={height}
+        src={videoObj.url}
+        frameBorder="0"
+        allowFullScreen />
+    </div>
+  )
+};
 
 const WebsiteDisplay = ({ website }) => (
   <div style={websiteContainer}>

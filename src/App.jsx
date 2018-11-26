@@ -37,6 +37,8 @@ class App extends Component {
 		const windowWidth = window.innerWidth;
 		//1600width x 2160 height = 74%
 		const heightOfExpandingDiv = (windowWidth < 740) ? 1000 : 1.35*windowWidth;
+
+		console.log("PARENT RESIZE ", windowWidth, this);
 		this.setState({ backgroundHeight: heightOfExpandingDiv, windowWidth: windowWidth }, () => {
 			this.forceUpdate();
 		});
