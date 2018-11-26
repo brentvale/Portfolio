@@ -185,13 +185,13 @@ const VideoSection = ({ height, width, videoObj }) => {
       >
         {videoObj.comments}
       </p>
-      {/*<iframe*/}
-        {/*title={videoObj.title}*/}
-        {/*width={width}*/}
-        {/*height={height}*/}
-        {/*src={videoObj.url}*/}
-        {/*frameBorder="0"*/}
-        {/*allowFullScreen />*/}
+      <iframe
+        title={videoObj.title}
+        width={width}
+        height={height}
+        src={videoObj.url}
+        frameBorder="0"
+        allowFullScreen />
     </div>
   )
 };
