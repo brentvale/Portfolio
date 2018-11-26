@@ -23,6 +23,7 @@ class DroneContainer extends Component {
         x: props.windowWidth/2,
         y: props.backgroundHeight / 2160 * BOUNDARIES_HEIGHT / 2,
       },
+      hasPressedFlyKeys: false,
     };
   }
 
@@ -76,7 +77,7 @@ class DroneContainer extends Component {
     if(indexOf(keysDown, e.keyCode) === -1){
       keysDown.push(e.keyCode);
     }
-    this.setState({ keysDown });
+    this.setState({ keysDown, hasPressedFlyKeys: true });
   };
 
   handleKeyUps = (e) => {
@@ -115,6 +116,15 @@ class DroneContainer extends Component {
         <div id={'iFlyDrones'}>
           <h2>I fly drones...</h2>
           <p>...and so can you.</p>
+          {this.props.isMobile && <p className={'subtext'}>(but not on mobile yet)</p>}
+
+          {Boolean(!this.props.isMobile && !this.state.hasPressedFlyKeys) &&
+            <div>
+              <p className={'subtext'}>{`A - left`}</p>
+              <p className={'subtext'}>{`W - up`}</p>
+              <p className={'subtext'}>{`D - right`}</p>
+              <p className={'subtext'}>{`S - down`}</p>
+            </div>}
         </div>
         <div
           className={'drone-propellers drone-hovering'}

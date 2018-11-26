@@ -540,6 +540,11 @@ h1,h2,h3{
 	margin-left: 80px;
 	font-size: 14px;
 }
+#iFlyDrones p.subtext{
+	color: white;
+	margin-left: 120px;
+	font-size: 10px;
+}
 .drone-boundaries {
 	position: relative;
 	width: 100%;
@@ -634,6 +639,9 @@ h1,h2,h3{
 		margin-left: 120px;
 		font-size: 22px;
 	}
+	#iFlyDrones p.subtext{
+		font-size: 10px;
+	 }
 
 }
 @media only screen and (min-width: 1200px){

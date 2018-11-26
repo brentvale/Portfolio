@@ -14,7 +14,8 @@ class App extends Component {
 		super();
 		this.state = {
 			backgroundHeight: null,
-			windowWidth: null
+			windowWidth: null,
+			isMobile: false,
 		};
 	}
 	
@@ -66,7 +67,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-				<IntroSectionContainer backgroundHeight={this.state.backgroundHeight}
+				<IntroSectionContainer isMobile={this.state.isMobile}
+															 backgroundHeight={this.state.backgroundHeight}
 															 windowWidth={this.state.windowWidth}/>
 
 				<RobotChickens windowWidth={this.state.windowWidth}/>
