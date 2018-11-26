@@ -112,6 +112,10 @@ class DroneContainer extends Component {
              height: droneBoundariesHeight,
              paddingBottom: droneBoundariesFromBottom,
            }}>
+        <div id={'iFlyDrones'}>
+          <h2>I fly drones...</h2>
+          <p>...and so can you.</p>
+        </div>
         <div
           className={'drone-propellers drone-hovering'}
           style={{

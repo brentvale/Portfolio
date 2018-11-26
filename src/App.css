@@ -13,6 +13,7 @@ h1,h2,h3{
 /*FONTS*/
 .raleway {
 	font-family: 'Raleway', Arial;
+	letter-spacing: 1.2px;
 }
 .rye {
 	font-family: 'Rye', cursive;
@@ -516,10 +517,28 @@ h1,h2,h3{
 }
 #skypixelContainer a span{
 	color: white;
+	font-size: 10px;
 }
 #skypixelContainer a:visited{
 	color: white;
 	text-decoration: none;
+}
+#iFlyDrones{
+	color: white;
+	font-family: 'Raleway', Arial;
+	letter-spacing: 1.2px;
+}
+#iFlyDrones h2{
+	color: white;
+	margin-left: 40px;
+	font-size: 20px;
+	margin-bottom: 4px;
+}
+#iFlyDrones p{
+	margin-top: 0px;
+	color: white;
+	margin-left: 80px;
+	font-size: 14px;
 }
 .drone-boundaries {
 	position: relative;
@@ -595,13 +614,27 @@ h1,h2,h3{
 	}
 	#skypixelContainer{
 		position: absolute;
-		right: 100px;
 		bottom: 100px;
 		padding: 20px;
+		left: 60px;
+	}
+	#skypixelContainer a span{
+		color: white;
+		font-size: 12px;
 	}
     #chickenContainer h2{
         font-size: 30px;
     }
+	#iFlyDrones h2{
+		margin-left: 80px;
+		font-size: 30px;
+		margin-bottom: 10px;
+	}
+	#iFlyDrones p{
+		margin-left: 120px;
+		font-size: 22px;
+	}
+
 }
 @media only screen and (min-width: 1200px){
 
