@@ -26,7 +26,9 @@ class App extends Component {
       window.addEventListener('orientationchange', debounce(this.handleResizeBackground.bind(this), 400));
 		}
 		this.handleResizeBackground();
-		this.setState({ isMobile: isDeviceMobile });
+		this.setState({ isMobile: isDeviceMobile }, () => {
+			this.forceUpdate();	
+		});
 	}
 
 	componentWillUnmount(){
@@ -55,7 +57,6 @@ class App extends Component {
 		} else {
 			w = window.innerWidth;
 		}
-
 
 		//1600width x 2160 height = 74%
 		const heightOfExpandingDiv = (w < 740) ? 1000 : 1.35*w;
