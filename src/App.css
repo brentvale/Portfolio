@@ -459,11 +459,64 @@ h1,h2,h3{
 /*END CHICKENS*/
 
 /*DRONE*/
+#droneFootageLink{
+	height: 50px;
+	width: 50px;
+}
+#filmRoll{
+	background-image: url('./images/film_roll.png');
+	background-size: 50px 50px;
+	background-position: 0px 0px;
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+}
+#whiteDrone{
+	background-image: url('./images/drone_sprite_4x4_800px_white.png');
+	background-size: 100px 100px;
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+	position:absolute;
+	left: 58px;
+	top: 32px;
+	height: 25px;
+	width: 25px;
+	animation-name: white-drone-spin-x, white-drone-spin-y;
+	animation-duration: 0.2s, 0.4s;
+	animation-iteration-count: infinite, infinite;
+	animation-timing-function: steps(4), steps(2);
+}
+@keyframes white-drone-spin-x {
+	from{
+		background-position-x:0px;
+	}
+	to{
+		background-position-x:-100px;
+	}
+}
+@keyframes white-drone-spin-y {
+	from{
+		background-position-y:0px;
+	}
+	to{
+		background-position-y:-50px;
+	}
+}
 #skypixelContainer{
 	position: absolute;
 	bottom: 50px;
-	right: 50px;
+	left: 0px;
 	padding: 20px;
+	width: 100px;
+	text-align: center;
+}
+#skypixelContainer a span{
+	color: white;
+	text-decoration: none;
+}
+#skypixelContainer a:visited{
+	color: white;
+	text-decoration: none;
 }
 .drone-boundaries {
 	position: relative;

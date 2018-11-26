@@ -125,7 +125,9 @@ class DroneContainer extends Component {
             target={'_blank'}
             rel={'noopener noreferrer'}
           >
-            SKYPIXEL
+            <span id={'filmRoll'}/>
+            <span id={'whiteDrone'} /><br/>
+            <span>My Drone Footage</span>
           </a>
         </div>
       </div>

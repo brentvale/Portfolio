@@ -168,7 +168,6 @@ const TechnologyBox = ({ tech }) => (
 );
 
 const VideoSection = ({ height, width, videoObj }) => {
-  console.log("UPDATING VIDEO SECTION ", width);
   return(
     <div className={'workExperienceSection'}
          style={{ marginBottom: '20px' }}>
