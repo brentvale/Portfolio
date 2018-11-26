@@ -23,7 +23,7 @@ export default class IntroSectionContainer extends Component {
 
         <LightningStrike backgroundHeight={backgroundHeight} windowWidth={windowWidth} />
 
-        <DroneContainer backgroundHeight={backgroundHeight} windowWidth={windowWidth}/>
+        <DroneContainer isMobile={this.props.isMobile} backgroundHeight={backgroundHeight} windowWidth={windowWidth}/>
       </div>
     );
   }

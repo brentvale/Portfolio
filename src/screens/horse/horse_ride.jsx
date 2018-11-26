@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { map } from 'lodash';
 
 const HORSE_MOVE_DISTANCE = 4; // pixel horse moves per interval
 const HORSE_SPRITE_INTERVAL_DURATION = 40;

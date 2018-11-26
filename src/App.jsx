@@ -27,7 +27,7 @@ class App extends Component {
 		}
 		this.handleResizeBackground();
 		this.setState({ isMobile: isDeviceMobile }, () => {
-			this.forceUpdate();	
+			this.forceUpdate();
 		});
 	}
 
