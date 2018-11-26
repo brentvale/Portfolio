@@ -34,26 +34,27 @@ class App extends Component {
 	}
 	
 	handleResizeBackground = () => { // eslint-disable-line
-		let h;
 		let w;
-    switch(window.orientation) {
-			case 0:
-        // portrait;
-        h = Math.max(window.innerWidth, window.innerHeight);
-        w = Math.min(window.innerWidth, window.innerHeight);
-        break;
-      case 90:
-      case -90:
-        // landscape
-        h = Math.min(window.innerWidth, window.innerHeight);
-        w = Math.max(window.innerWidth, window.innerHeight);
-        break;
-      default:
-        // landscape
-        h = Math.min(window.innerWidth, window.innerHeight);
-        w = Math.max(window.innerWidth, window.innerHeight);
-        break;
-    }
+		if(window.orientation){
+      switch(window.orientation) {
+        case 0:
+          // portrait;
+          w = Math.min(window.innerWidth, window.innerHeight);
+          break;
+        case 90:
+        case -90:
+          // landscape
+          w = Math.max(window.innerWidth, window.innerHeight);
+          break;
+        default:
+          // portrait
+          w = Math.min(window.innerWidth, window.innerHeight);
+          break;
+      }
+		} else {
+			w = window.innerWidth;
+		}
+
 
 		//1600width x 2160 height = 74%
 		const heightOfExpandingDiv = (w < 740) ? 1000 : 1.35*w;
