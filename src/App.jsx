@@ -19,10 +19,11 @@ class App extends Component {
 	}
 	
 	componentDidMount(){
-		window.addEventListener('resize', debounce(this.handleResizeBackground.bind(this), 200));
+		window.addEventListener('resize', debounce(this.handleResizeBackground.bind(this), 1000));
+    window.addEventListener('orientationchange', debounce(this.handleResizeBackground.bind(this), 1000));
 		const isDeviceMobile = isMobile();
 		if(isDeviceMobile){
-      window.addEventListener('orientationchange', debounce(this.handleResizeBackground.bind(this), 200));
+
 		}
 		this.handleResizeBackground();
 		this.setState({ isMobile: isDeviceMobile });
@@ -34,12 +35,30 @@ class App extends Component {
 	}
 	
 	handleResizeBackground = () => { // eslint-disable-line
-		const windowWidth = window.innerWidth;
-		//1600width x 2160 height = 74%
-		const heightOfExpandingDiv = (windowWidth < 740) ? 1000 : 1.35*windowWidth;
+		let h;
+		let w;
+    switch(window.orientation) {
+			case 0:
+        // portrait;
+        h = Math.max(window.innerWidth, window.innerHeight);
+        w = Math.min(window.innerWidth, window.innerHeight);
+        break;
+      case 90:
+      case -90:
+        // landscape
+        h = Math.min(window.innerWidth, window.innerHeight);
+        w = Math.max(window.innerWidth, window.innerHeight);
+        break;
+      default:
+        // landscape
+        h = Math.min(window.innerWidth, window.innerHeight);
+        w = Math.max(window.innerWidth, window.innerHeight);
+        break;
+    }
 
-		console.log("PARENT RESIZE ", windowWidth, this);
-		this.setState({ backgroundHeight: heightOfExpandingDiv, windowWidth: windowWidth }, () => {
+		//1600width x 2160 height = 74%
+		const heightOfExpandingDiv = (w < 740) ? 1000 : 1.35*w;
+		this.setState({ backgroundHeight: heightOfExpandingDiv, windowWidth: w }, () => {
 			this.forceUpdate();
 		});
 	};
