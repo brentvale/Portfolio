@@ -121,12 +121,41 @@ export default class WorkExperience extends Component {
 
     return (
       <div className={'flexCentered'}>
+        <div id={'workTitle'}>
+          <h2
+            style={{
+              ...sectionTitleText,
+              textAlign: 'left',
+              paddingLeft: '20px',
+              paddingRight: '80px',
+            }}
+          >
+            {'When I\'m not engineering for fun at home... \n'}
+          </h2>
+          <h2
+            style={{
+              ...sectionTitleText,
+              textAlign: 'right',
+              paddingRight: '80px',
+            }}
+          >
+            {'I\'m engineering for fun at work!'}
+          </h2>
+        </div>
         {map(WORK, (info, idx) => <WorkBlock info={info} key={idx}/>)}
         <WorkBlockLookingForMore />
         <SectionDivider />
 
         {this.state.okToLoadYouTubeVideos
           ? <div>
+              <div className={'workExperienceSection'}>
+                <h2 style={sectionTitleText}>
+                  {'Feeling Groovy Making Movies'}
+                </h2>
+                <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
+                  {'Film and photography are my Jam!  I love making movies, capturing timelapses, taking photos (with portrait mode on iOS!).  Here\'s some of my favorites, hope you enjoy!'}
+                </p>
+              </div>
               {map(YOU_TUBE_VIDEOS, (videoObj, idx) => <VideoSection
                         key={idx}
                         videoObj={videoObj}

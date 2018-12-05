@@ -57,6 +57,10 @@ h1,h2,h3{
 	justify-content: center;
 	align-items: center;
 }
+#workTitle{
+	width: 100%;
+	max-width: 600px;
+}
 .center-block{
 	left:0;
 	right:0;
