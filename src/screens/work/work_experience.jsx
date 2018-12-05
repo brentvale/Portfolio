@@ -148,14 +148,7 @@ export default class WorkExperience extends Component {
 
         {this.state.okToLoadYouTubeVideos
           ? <div>
-              <div className={'workExperienceSection'}>
-                <h2 style={sectionTitleText}>
-                  {'Feeling Groovy Making Movies'}
-                </h2>
-                <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
-                  {'Film and photography are my Jam!  I love making movies, capturing timelapses, taking photos (with portrait mode on iOS!).  Here\'s some of my favorites, hope you enjoy!'}
-                </p>
-              </div>
+              <VideoSectionHeading />
               {map(YOU_TUBE_VIDEOS, (videoObj, idx) => <VideoSection
                         key={idx}
                         videoObj={videoObj}
@@ -163,6 +156,7 @@ export default class WorkExperience extends Component {
                         width={videoWidth}/>)}
             </div>
           : <div>
+              <VideoSectionHeading />
               <h1>LOADING VIDEOS FROM YOUTUBE</h1>
             </div>}
         <div style={{ height: '50px', width: '100%' }} />
@@ -171,6 +165,17 @@ export default class WorkExperience extends Component {
     );
   }
 }
+
+const VideoSectionHeading = () => (
+  <div className={'workExperienceSection'}>
+    <h2 style={sectionTitleText}>
+      {'Feeling Groovy Making Movies'}
+    </h2>
+    <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
+      Film and photography are my Jam!  I love making movies, capturing timelapses, taking photos (with portrait mode on iOS!).  Here's some of my favorite videos, head over to my instagram (<a href={'https://www.instagram.com/coding_cowboy/'} target={'_blank'} rel={'noopener noreferrer'}>@coding_cowboy</a>) for best pictures and timelapses, hope you enjoy!'}
+    </p>
+  </div>
+);
 
 const SectionDivider = () => (
   <div style={sectionEndStyle}>
