@@ -7,7 +7,7 @@ import { SectionTitle } from '../work/work_experience';
 
 const ANIMATION_INTERVAL = 32;
 const chickenParagraph = `My wife and I raise laying hens, and have come to love what 
-chickens provide:  fresh eggs with with golden yolks, entertainment in the form of 
+chickens provide:  fresh eggs with golden yolks, entertainment in the form of 
  Chicken TV (we sit and watch and laugh as the girls go about their day), reduction of 
  garden pests, and a sustainable form of food production.`;
 
