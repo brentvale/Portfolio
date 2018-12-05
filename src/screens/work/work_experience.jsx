@@ -172,7 +172,7 @@ const VideoSectionHeading = () => (
       {'Feeling Groovy Making Movies'}
     </h2>
     <p className={'mediumPadding sectionFont'} style={{ textAlign: 'left' }}>
-      Film and photography are my Jam!  I love making movies, capturing timelapses, taking photos (with portrait mode on iOS!).  Here's some of my favorite videos, head over to my instagram (<a href={'https://www.instagram.com/coding_cowboy/'} target={'_blank'} rel={'noopener noreferrer'}>@coding_cowboy</a>) for best pictures and timelapses, hope you enjoy!'}
+      Film and photography are my Jam!  I love making movies, capturing timelapses, taking photos (with portrait mode on iOS!).  Here's some of my favorite videos, head over to my instagram (<a href={'https://www.instagram.com/coding_cowboy/'} target={'_blank'} rel={'noopener noreferrer'}>@coding_cowboy</a>) for best pictures and timelapses, hope you enjoy!
     </p>
   </div>
 );
