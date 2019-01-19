@@ -17,7 +17,7 @@ const robotChickens = `Wouldn't it be cool if there were robot chickens? I think
   the utility (or comedic value) just toss a can to my robot chickens!`;
 
 const robotChickenFacts = `Some facts you should know about robot chickens: they love shredded aluminum 
-more than anything else, they don't do much other than walk an eat, they will save the environment so 
+more than anything else, they don't do much other than walk and eat, they will save the environment so 
 toss them a treat!`;
 
 class RobotChickens extends Component {
